@@ -17,7 +17,29 @@ namespace Exercises
       */
         public int Max1020(int a, int b)
         {
-            return 0;
+            if (b > a) 
+            {
+                a = a + b;
+                 b = a - b;
+                 a = a - b;
+               
+            }
+           
+            if (a >= 10 && a <= 20)
+            {
+                return a;
+            }
+            else if (b >= 10 && b <= 20)
+            {
+                return b;
+            }
+            else
+            {
+                return 0;
+            }
+            
+            
+                
         }
 
     }

@@ -16,7 +16,8 @@ namespace Lecture
         */
         public string ReturnFizzIfThree(int number)
         {
-            return null;
+           // Ternary; bool-expression ? value-if-true : value-if-false;
+            return (number == 3) ? "Fizz" : "";
         }
     }
 }

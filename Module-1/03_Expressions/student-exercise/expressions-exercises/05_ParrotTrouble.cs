@@ -18,6 +18,19 @@ namespace Exercises
          */
         public bool ParrotTrouble(bool talking, int hour)
         {
+            if (!talking)
+            {
+                return false;
+            }
+
+            //at this point we know that we are talking
+            if (hour < 7 || hour > 20)
+            {
+                return true;
+            }
+            
+            
+            else
             return false;
         }
 
