@@ -20,7 +20,28 @@ namespace Exercises
          */
         public int Sum13(int[] nums)
         {
-            return 0;
+            // array 0 == 0
+            // don't count 13 and don't count index of 13 + next index
+            // when encounter 13 add 1 to i to skip it
+            //otherwise add sum and current index
+            int sum = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 13)
+                {
+                    i++;
+                }
+                else 
+                {
+                    sum += nums[i];
+
+                }
+                
+
+
+            }
+
+            return sum;
         }
 
     }

@@ -19,6 +19,29 @@ namespace Exercises
          */
         public int TeaParty(int tea, int candy)
         {
+            // 0 is bad, 1 is good, 2 is great
+            //party = 1 if tea + candy = 5
+            // if tea or party is 2x the other = party great
+            // if tea or party is < 5 = bad
+
+            if (tea < 5 || candy < 5)
+            {
+                return 0;
+            }
+            else if(tea >= (2*candy) || candy >= (2*tea))
+            {
+                return 2;
+            }
+            else if (tea >= 5 && candy >= 5)
+            {
+                return 1;
+            }
+           
+            
+            
+                
+            
+            
             return 0;
         }
 

@@ -20,7 +20,35 @@ namespace Exercises
          */
         public int LuckySum(int a, int b, int c)
         {
-            return 0;
+            //dont count 13 and 1 to the right
+            //if c = 13 = normal
+            // if a =13, only count c
+            // if a is not 13 and b is 13 only cont a
+            if (a == 13 && b == 13 && c == 13)
+            {
+                return 0;
+            }
+            else if (a == 13 && b == 13)
+            {
+                return 0;
+            }
+            else if (a == 13 && c == 13)
+            {
+                return 0;
+            }
+            else if (a == 13)
+            {
+                return c;
+            }
+            else if (b == 13)
+            {
+                return a;
+            }
+            else if (c == 13)
+            {
+                return a + b;
+            }
+            return a + b + c;
         }
     }
 }

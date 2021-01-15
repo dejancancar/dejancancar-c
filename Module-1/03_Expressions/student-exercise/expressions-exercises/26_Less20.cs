@@ -18,8 +18,15 @@ namespace Exercises
          */
         public bool Less20(int n)
         {
+            // n % 20 == 0 is false
+            //n + 1 or 2 near mod = true
+            //true if 1 or 2 n % 20 == 0
+            if ((n + 1) % 20 == 0 || (n + 2) % 20 == 0)
+            {
+                return true;
+            }
             return false;
         }
-
+       
     }
 }

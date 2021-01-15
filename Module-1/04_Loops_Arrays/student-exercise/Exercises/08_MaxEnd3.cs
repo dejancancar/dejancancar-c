@@ -17,7 +17,25 @@ namespace Exercises
          */
         public int[] MaxEnd3(int[] nums)
         {
-            return new int[] { };
+            // check index 0 and last index and see which is bigger
+            // change indexes to match larger number
+            int largeNumber = 0;
+            if(nums[0] > nums[nums.Length-1])
+            {
+                largeNumber = nums[0];
+            }
+            else
+            {
+                largeNumber = nums[nums.Length - 1];
+            }
+            for(int i = 0; i < nums.Length; i++)
+            {
+                nums[i] = largeNumber;
+            }
+            return nums;
+                
+
+            
         }
 
     }

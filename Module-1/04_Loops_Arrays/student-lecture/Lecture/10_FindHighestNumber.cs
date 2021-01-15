@@ -15,7 +15,16 @@ namespace Lecture
         */
         public int FindTheHighestNumber(int[] randomNumbers)
         {
-            return 0;
+            int currentHighestNumber = randomNumbers[0];
+            for(int i = 1; i < randomNumbers.Length; i++)
+            {
+                if(randomNumbers[i] > currentHighestNumber)
+                {
+                    currentHighestNumber = randomNumbers[i];
+                }
+            }
+            return currentHighestNumber;
+            
         }
     }
 }

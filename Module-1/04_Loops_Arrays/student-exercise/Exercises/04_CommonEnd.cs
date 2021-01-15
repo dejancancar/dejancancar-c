@@ -17,6 +17,12 @@ namespace Exercises
          */
         public bool CommonEnd(int[] a, int[] b)
         {
+            //a[0] and b[0] are equal = true
+            //if a[a.length-1] = b[b.length-1] = true
+            if (a[0] == b[0] ||a[a.Length-1] == b[b.Length-1])
+            {
+                return true;
+            }
             return false;
         }
 

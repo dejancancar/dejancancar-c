@@ -17,7 +17,21 @@ namespace Exercises
          */
         public int CountEvens(int[] nums)
         {
-            return 0;
+            //Look at array, get every even number and return total of even numbers
+            //first loop through even numbers in array
+            //add everytime loop counts even number
+            int addOneForEvens = 0;
+            for (int i = 0; i < nums.Length; i++) 
+            {
+                if (nums[i] % 2 == 0) // make sure to check the INDEX of array for even not i
+                {
+                    addOneForEvens += 1;
+                }
+                
+            }
+            return addOneForEvens;
+
+
         }
 
     }

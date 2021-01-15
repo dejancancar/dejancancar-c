@@ -18,6 +18,11 @@ namespace Exercises
          */
         public bool SameFirstLast(int[] nums)
         {
+            //true if array is 1 or longer AND index[0] and index.Length-1 are equal
+            if(nums.Length > 0 && (nums[0] == nums[nums.Length -1]))
+            {
+                return true;
+            }
             return false;
         }
 

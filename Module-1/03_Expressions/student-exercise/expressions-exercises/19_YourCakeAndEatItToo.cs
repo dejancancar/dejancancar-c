@@ -28,7 +28,33 @@ namespace Exercises
          */
         public string YourCakeAndEatItToo(double mealAmount, bool isBirthday)
         {
-            return "";
+            // Given the meal amount, and whether it's your birthday, calculate a "credit amount" (used for determining dessert size)
+            double creditAmount;
+            if (isBirthday)
+            {
+                creditAmount = mealAmount + 5.00;
+            }
+            else
+            {
+                creditAmount = mealAmount;
+            }
+            // Based on credit amount, determine dessert size
+            string dessertSize;
+            if (creditAmount <= 10.00)
+            {
+                dessertSize = "standard";
+            }
+            else if (creditAmount <= 15.00)
+            {
+                dessertSize = "special"; // credit is > 10 and <= 15
+            }
+            else // credit is > 15
+            {
+                dessertSize = "ginormous";
+            }
+
+
+            return dessertSize;
         }
     }
 }

@@ -14,9 +14,22 @@ namespace Exercises
          InOrder(1, 2, 4, false) → true
          InOrder(1, 2, 1, false) → false
          InOrder(1, 1, 2, true) → true
+        (a20, b10, c20) bOk true = false
          */
         public bool InOrder(int a, int b, int c, bool bOk)
         {
+            //c > b > a = true 
+            // if bok true c > a > b = true, c > b > a = true
+
+            if (bOk && c > b && b <= a)
+            {
+                return true;
+            }
+            else if (c > b && b > a)
+            {
+                return true;
+            }
+
             return false;
         }
 

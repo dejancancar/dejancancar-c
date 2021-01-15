@@ -17,7 +17,10 @@ namespace Exercises
          */
         public int[] MiddleWay(int[] a, int[] b)
         {
-            return new int[] { };
+            //a and b are both 3 index long
+            // take index 1 and return new arry with index 1
+
+            return new int[] {a[1],b[1] };
         }
 
     }

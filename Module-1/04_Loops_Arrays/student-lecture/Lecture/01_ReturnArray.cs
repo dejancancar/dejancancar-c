@@ -17,9 +17,12 @@ namespace Lecture
         */
         public int[] ReturnNewArray()
         {
-            return null;
+            int[] myArray = new int[] { 100 };
+            return myArray;
+            //int[] return = new int[] { 100 };
+            //myArray is just a variable
         }
-
+        
 
         /*
         1b. This method expects an array of integers size 100 to be returned.
@@ -29,7 +32,8 @@ namespace Lecture
         */
         public int[] ReturnArrayOfKnownSize()
         {
-            return null;
+            
+            return new int [100];
         }
 
         /*
@@ -40,7 +44,7 @@ namespace Lecture
         */
         public string[] ReturnArrayOfUnknownSize(int n)
         {
-            return null;
+            return new string[n];
         }
 
         

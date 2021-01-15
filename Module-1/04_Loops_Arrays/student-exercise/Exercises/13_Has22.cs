@@ -16,7 +16,22 @@ namespace Exercises
          */
         public bool Has22(int[] nums)
         {
-            return false;
+            //if index a 2 add 1 to i and check if 2
+            //if 2 2 in a row return true otherwise false
+            //don't care what the last index is if 2nd to last is not 2
+            for(int i = 0; i < nums.Length - 1; i++)
+            {
+                if ((nums[i] == 2) && (nums[i + 1] == 2))
+                {
+
+                    return true;
+                }
+                
+            
+            
+            
+            }   
+                return false;
         }
 
     }

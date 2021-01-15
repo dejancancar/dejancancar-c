@@ -17,8 +17,15 @@ namespace Lecture
         {
             int[] arrayToLoopThrough = { 3, 4, 2, 9 };
 
+            int sum = 0; // start with variable, starts with 0.
+            for (int i=0; i < arrayToLoopThrough.Length; i++)
+            {
+                sum += arrayToLoopThrough[i]; // add each individual element in the array
+            }
 
-            return 0;
+                
+
+            return sum;
         }
     }
 }
