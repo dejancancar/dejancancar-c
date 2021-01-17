@@ -17,7 +17,17 @@ namespace Exercises
          */
         public int[] Reverse3(int[] nums)
         {
-            return new int[] {nums[2], nums[1], nums[0] };
+            //return new int[] {nums[2], nums[1], nums[0] };
+            //create a "result" array which will be the same length as the original
+            int[] reverseNums = new int[nums.Length];
+            //Visit every element of the array coming in
+            for (int i = 0; i < nums.Length; i++)
+            {
+                reverseNums[i] = nums[nums.Length - 1 - i];
+            }
+            return reverseNums;
+
+
         }
 
     }

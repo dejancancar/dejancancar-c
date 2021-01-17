@@ -26,7 +26,7 @@ namespace Exercises
             {
                 return false;
             }
-            else if(isMorning && isMom || isMom || !isMorning)
+            else if(isMorning && isMom || !isMorning)
             {
                 return true;
                     

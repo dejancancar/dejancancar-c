@@ -20,7 +20,8 @@ namespace Exercises
          */
         public string AlarmClock(int day, bool vacation)
         {
-
+            // 7  am weekday  + 10 weekends
+            // if vacation 10 weekday and off weekends
             if (vacation)
             {
                 if (day == 0 || day == 6)
