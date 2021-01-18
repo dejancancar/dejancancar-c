@@ -41,6 +41,7 @@ namespace TempConvert
                 {
                     if (quit == "q" || quit == "Q")
                     {
+                        Console.WriteLine("Good Bye!");
                         break;
                     }
                 }

@@ -47,9 +47,11 @@ namespace LinearConvert
                 {
                     if (quit == "q" || quit == "Q")
                     {
+                        Console.WriteLine("Good Bye!");
                         break;
                     }
                 }
+                
 
             }
         }
