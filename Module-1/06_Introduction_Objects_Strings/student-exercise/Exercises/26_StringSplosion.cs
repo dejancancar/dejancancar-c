@@ -16,6 +16,12 @@ namespace Exercises
          */
         public string StringSplosion(string str)
         {
+            //print string
+            //print string-1 + string
+            //print string-2 + string
+            //loop until string is equal to 1
+
+
             return null;
         }
     }

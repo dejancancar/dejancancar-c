@@ -17,7 +17,12 @@ namespace Exercises
          */
         public string Right2(string str)
         {
-            return null;
+            string lastTwoLetters = str.Substring(str.Length - 2);
+            
+            
+
+            return ($"{lastTwoLetters}{str.Substring(0,str.Length-2)}");
+            
         }
     }
 }

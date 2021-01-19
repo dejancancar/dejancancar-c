@@ -16,7 +16,24 @@ namespace Exercises
          */
         public string StringTimes(string str, int n)
         {
-            return null;
+            //string totalTimes = "";
+            string addMeUp = "";
+            if(n == 0)
+            {
+                return "";
+            }
+            if (n > 1)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    addMeUp += str;
+                    //totalTimes = addMeUp;
+
+                }
+
+                return addMeUp;
+            }
+            return str;
         }
     }
 }

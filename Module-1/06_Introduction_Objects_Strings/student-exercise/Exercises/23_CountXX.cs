@@ -16,7 +16,25 @@ namespace Exercises
          */
         public int CountXX(string str)
         {
-            return 0;
+            //int countOfXx = 0;
+            //if(str.Equals("xx"))
+            //{
+            //    countOfXx++;
+            //}
+            //return countOfXx;
+            int lengthOfStr = str.Length;
+            int addUpTheXxs = 0;            
+            for (int i = 0; i < lengthOfStr - 1; i++)
+            {
+                if (str.Substring(i,2).Equals("xx")) //if in str the loop finds x and x+1 is also x
+                {
+                    addUpTheXxs++;
+
+                }
+                
+            }
+            return addUpTheXxs;
+
         }
     }
 }

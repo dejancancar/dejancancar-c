@@ -17,7 +17,37 @@ namespace Exercises
          */
         public string FrontTimes(string str, int n)
         {
-            return null;
+            //get firt 3 characters
+            // return n copies of whatever the first 3 characters are
+            
+            string totalAddedUp = "";
+            int strLength = str.Length;
+           if (strLength >= 3)
+           {
+                string firstThree = str.Substring(0, 3);
+                    for(int i = 0; i < n; i++)
+                    {
+                        totalAddedUp += firstThree;
+
+
+                    }
+                return totalAddedUp;
+                
+           }
+           else if (strLength <= 2)
+            {
+                for(int i = 0; i<n;i++)
+                {
+                    totalAddedUp += str;
+                }
+                return totalAddedUp;
+            }
+            return "";
+            
+             
+            
+
+            
         }
 
     }

@@ -17,7 +17,12 @@ namespace Exercises
          */
         public string NTwice(string str, int n)
         {
-            return null;
+            //look at size of N
+            //take n and number of letters from front and back and add them together
+
+            // str.substring(0,n) str.substring-n
+
+            return str.Substring(0,n)+str.Substring(str.Length-n);
         }
     }
 }

@@ -17,7 +17,28 @@ namespace Exercises
          */
         public int Last2(string str)
         {
-            return 0;
+            int totalCount = 0;
+            if (str.Length < 2)
+            {
+                return totalCount;
+            }
+            string lastTwo = str.Substring(str.Length - 2);
+            //int indexLastTwo = str.IndexOf(lastTwo);
+            
+
+            //count of the number of times that a substring lenght of 2 appe
+            //Check last 2 characters against rest of the string
+
+            for (int i = 0; i < str.Length - 2; i++)
+            {
+                if(str.Substring(i,2).Equals(lastTwo))
+                {
+                    totalCount++;
+                }
+                
+            }
+
+            return totalCount;
         }
     }
 }

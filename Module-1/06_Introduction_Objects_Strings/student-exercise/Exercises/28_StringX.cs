@@ -17,6 +17,13 @@ namespace Exercises
         */
         public string StringX(string str)
         {
+            //remove every x except the start or end
+
+            //start substring count after 1 but end before str.length-1
+
+            //remove all x
+
+            // for loop, cycle the array and add last number, if x skip array
             return null;
         }
     }

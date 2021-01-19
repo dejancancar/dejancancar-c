@@ -17,7 +17,20 @@ namespace Exercises
          */
         public string MiddleThree(string str)
         {
-            return null;
+
+            //Odd length
+            //3 middle letters
+            int lengthOfStr = str.Length;
+            int middleLetter = lengthOfStr / 2;
+            if (str.Length <= 3)
+            {
+                return str;
+            }
+            else 
+               return str.Substring(middleLetter-1, 3);
+           
+            //return null;
         }
     }
 }
+

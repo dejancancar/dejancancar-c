@@ -17,7 +17,10 @@ namespace Exercises
          */
         public string Left2(string str)
         {
-            return null;
+            string noFirstTwo = str.Substring(2);
+            string onlyFirstTwo = str.Substring(0,2);
+            string addToTheEnd = noFirstTwo + onlyFirstTwo;
+            return addToTheEnd;
         }
     }
 }

@@ -17,7 +17,11 @@ namespace Exercises
          */
         public string ExtraEnd(string str)
         {
-            return null;
+            string lastTwoCharacters = str.Substring(str.Length - 2);
+            string charactersRepeated = lastTwoCharacters + lastTwoCharacters + lastTwoCharacters;
+            //find last 2 charachters
+            //new string made of the copies of lastTwoCharachters
+            return charactersRepeated;
         }
     }
 }
