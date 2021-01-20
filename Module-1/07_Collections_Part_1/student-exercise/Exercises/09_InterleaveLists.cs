@@ -18,7 +18,16 @@ namespace Exercises
         */
         public List<int> InterleaveLists(List<int> listOne, List<int> listTwo)
         {
-            return null;
+            //Place holder list
+            List<int> finalList = new List<int>(listOne);
+            //list two must put elements into final list at even spaces
+     
+            //listone has to put in elements in at odd spaces
+           
+
+            //if one list longer then other then add to the end of final list
+            //
+            return finalList;
         }
     }
 }

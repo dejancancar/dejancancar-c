@@ -17,7 +17,34 @@ namespace Exercises
          */
         public List<string> No4LetterWords(string[] stringArray)
         {
-            return null;
+            //convert array to list
+            //remove any 4 charachters words 
+            List<string> arrayAsList = new List<string>(stringArray);
+            List<string> finalArrayList = new List<string>();
+
+            foreach (string result in stringArray)
+                if (result.Length == 4)
+                {
+                    finalArrayList = finalArrayList;
+                }
+                else
+                    finalArrayList.Add(result);
+
+
+            //arrayAsList.Join
+            //for (int i = 0; i < stringArray.Length; i++)
+            //{
+            //    if (stringArray[i])
+            //    {
+            //        arrayAsList.RemoveAt(i);
+            //    }
+            //    if (stringArray.Substring(0, 4))
+            //    {
+            //        arrayAsList.Remove();
+            //    }
+            //}
+
+            return finalArrayList;
         }
     }
 }

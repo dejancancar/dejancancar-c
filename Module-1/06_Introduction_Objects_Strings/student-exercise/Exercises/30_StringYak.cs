@@ -17,7 +17,10 @@ namespace Exercises
          */
         public string StringYak(string str)
         {
-            return null;
+            //read string
+            // does it contain yak
+            //if it contains yak remove it
+            return str.Replace("yak","");
         }
     }
 }

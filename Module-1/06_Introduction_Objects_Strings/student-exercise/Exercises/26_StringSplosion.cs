@@ -16,13 +16,19 @@ namespace Exercises
          */
         public string StringSplosion(string str)
         {
-            //print string
+            //save string, add string - 1, continue until string is index 1
             //print string-1 + string
             //print string-2 + string
             //loop until string is equal to 1
+            string result = "";
+            int lengthOfStr = str.Length;
+            for (int i = 0; i < str.Length + 1; i++)
+            {
+                result = result + str.Substring(0, i);
+            }
 
 
-            return null;
+            return result;
         }
     }
 }

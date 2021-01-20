@@ -17,6 +17,28 @@ namespace Exercises
         */
         public bool FoundIntTwice(List<int> integerList, int intToFind)
         {
+            //start with list of intergers
+            // take number and see if its in list
+            // if number is in list 2 or more times, return true otherwise return false
+            //for loop to check every integer
+            //if found add one to variable
+            int counter = 0;
+            foreach (int result in integerList)
+            {
+                if (intToFind.Equals(result))
+                {
+                    counter++;
+                }
+                
+                
+            }
+
+
+            if (counter >= 2)
+            {
+                return true;
+            }
+
             return false;
         }
     }

@@ -17,14 +17,21 @@ namespace Exercises
         */
         public string StringX(string str)
         {
-            //remove every x except the start or end
 
-            //start substring count after 1 but end before str.length-1
+            if (str.Length <= 2)
+            {
+                return str;
+            }
 
-            //remove all x
+            string first = str.Substring(0, 1);
+            string middle = str.Substring(1, str.Length - 2);
+            string last = str.Substring(str.Length - 1);
 
-            // for loop, cycle the array and add last number, if x skip array
-            return null;
+            //Now remove x's from the middle
+
+            middle = middle.Replace("x", "");
+
+            return first + middle + last;
         }
     }
 }

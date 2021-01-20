@@ -16,7 +16,25 @@ namespace Exercises
         */
         public List<double> ArrayInt2ListDouble(int[] intArray)
         {
-            return null;
+            // make array into list 
+            // divide each index by 2
+            //make list into array
+            // array ints to divide by 2 (doubles)
+            //return an array
+
+            List<double> arrayAsList = new List<double>();
+            foreach(double result in intArray)
+            {
+                arrayAsList.Add(result / 2);
+
+            }
+
+            //double half = 0;
+            //for (int i=0; i < intArray.Length; i++)
+            //{
+
+            //}
+            return arrayAsList;
         }
     }
 }
