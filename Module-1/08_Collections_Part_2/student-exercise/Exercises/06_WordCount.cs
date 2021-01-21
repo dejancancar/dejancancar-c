@@ -22,7 +22,32 @@ namespace Exercises
          */
         public Dictionary<string, int> WordCount(string[] words)
         {
-            return null;
+            //dictionary string in 
+            Dictionary<string, int> result = new Dictionary<string, int>();
+            
+            //bool exists = result.ContainsKey()
+           //int valueCounter = 1;
+
+            //loop through array
+            foreach (string word in words)
+            {
+                if (result.ContainsKey(word))
+                {
+                    //valueCounter += 1;
+                    result[word] += 1;
+                }
+                else
+                {
+                    result[word] = 1;
+                }
+            }
+
+            //check word, add to dictionary if not there, plus one if there (contains key ) key.value+1
+
+
+            //multiple of the same word is one key but number of times that word appears goes up
+
+            return result;
         }
     }
 }

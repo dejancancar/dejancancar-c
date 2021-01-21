@@ -19,7 +19,7 @@ namespace Exercises
         {
             //convert array to list
             //remove any 4 charachters words 
-            List<string> arrayAsList = new List<string>(stringArray);
+            //List<string> arrayAsList = new List<string>(stringArray);
             List<string> finalArrayList = new List<string>();
 
             foreach (string result in stringArray)

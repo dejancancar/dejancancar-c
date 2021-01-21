@@ -38,7 +38,53 @@ namespace Exercises
          */
         public string AnimalGroupName(string animalName)
         {
-            return null;
+
+            //declare a dictionary and add names
+            //animalName puts in a name
+           
+            Dictionary<string, string> animalGroup = new Dictionary<string, string>()
+            {
+                {"rhino", "Crash" },
+                {"giraffe", "Tower" },
+                {"elephant", "Herd"},
+                {"lion", "Pride"},
+                {"crow", "Murder"},
+                {"pigeon", "Kit"},
+                {"flamingo", "Pat"},
+                {"deer", "Herd"},
+                {"dog", "Pack"},
+                {"crocodile", "Float"},
+
+            };
+            //take name and return the value (both string)
+            //case insensitive
+            //string groupType = "UNKNOWN";
+            //if (animalName > 0)
+            //{ }
+            if (animalName == null)
+            {
+                return "unknown";
+            }
+            string animalNameLower = animalName.ToLower();
+            foreach (KeyValuePair<string, string> kvp in animalGroup)
+            {
+                if(animalNameLower == (kvp.Key))
+                {
+                    return kvp.Value;
+                }
+                //return groupType = kvp.Value;
+                
+            }
+
+
+            //if animal is not found return unknown
+
+
+
+
+
+
+            return "unknown";
         }
     }
 }

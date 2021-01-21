@@ -20,7 +20,31 @@ namespace Exercises
          */
         public Dictionary<string, int> RobPeterToPayPaul(Dictionary<string, int> peterPaul)
         {
-            return null;
+            //if peter has more money than 0, and paul has less than 10, transfer half
+            //look at key for peter and check value
+            //look at key for paul and check value
+            //if paul has less than 10, transfer half from peter
+            //otherwise leave it alone
+            bool ifPaul = peterPaul.ContainsKey("Paul");
+            int paulMoney = peterPaul["Paul"];
+            int peterMoney = peterPaul["Peter"];
+            //Dictionary<string, int> result = new Dictionary<string, int>();
+
+            if (ifPaul)
+            {
+                if (paulMoney < 1000)
+                {
+                    paulMoney = paulMoney + peterMoney / 2;
+                    peterMoney = peterMoney / 2;
+                    peterPaul["Peter"] = peterMoney;
+                    peterPaul["Paul"] = paulMoney;
+                }
+           
+            } 
+            
+            return peterPaul;
         }
+        
+       
     }
 }

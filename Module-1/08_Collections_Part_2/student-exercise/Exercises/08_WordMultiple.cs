@@ -19,7 +19,35 @@ namespace Exercises
          */
         public Dictionary<string, bool> WordMultiple(string[] words)
         {
-            return null;
+            Dictionary<string, int> isItTrue = new Dictionary<string, int>();
+            Dictionary<string, bool> trueOrFalse = new Dictionary<string, bool>();
+            //check array
+            foreach (string word in words)
+            {
+                if (isItTrue.ContainsKey(word))
+                {
+                    isItTrue[word] += 1;
+                }
+                else isItTrue[word] = 1;
+            }
+            foreach (KeyValuePair<string, int> kvp in isItTrue)
+            {
+                if (kvp.Value >= 2)
+                {
+                    trueOrFalse[kvp.Key] = true;
+                }
+                else
+                {
+                    trueOrFalse[kvp.Key] = false;
+                }
+              
+            }
+            //add array to dictionary
+
+            // if value is more than 1 true or if key is 2 or more true else false
+
+
+            return trueOrFalse;
         }
     }
 }

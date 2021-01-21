@@ -25,7 +25,54 @@ namespace Exercises
          */
         public Dictionary<string, int> Last2Revisited(string[] words)
         {
-            return null;
+            //check first two and check last two, if they equal add one to value
+
+            //don't count last index but any doubles in the word counts as plus 1. (see xxxx=2 example)
+
+            //create dictionary string, int
+
+            //foreach loop, check last 2 (substring), see if equal first two
+            // if equal first 2, add one, else 0.
+
+            //word contains the above 2 letters of the substring, 
+
+            //string hello = "hellohellohello";
+            //string lasttwo = hello.Substring(hello.Length- 2);
+
+            //for (int i = 0; i < hello.Length-1; i++)
+            //{ if(hello.Substring(i,2) == lasttwo)
+            //    count ++;
+            //}
+            Dictionary<string, int> final = new Dictionary<string, int>();
+
+            foreach (string word in words)
+            {
+                int count = 0;
+                string lastTwo = word.Substring(word.Length - 2);
+                for (int i = 0; i < word.Length - 2; i++)
+                {
+                    if (word.Substring(i, 2).Equals(lastTwo))
+                    {
+                        count++;
+                    }
+
+
+                }
+                final[word] = count;
+
+
+
+
+
+
+            }
+
+
+
+
+
+
+            return final;
         }
     }
 }
