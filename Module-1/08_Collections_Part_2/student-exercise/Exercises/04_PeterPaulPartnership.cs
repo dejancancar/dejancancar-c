@@ -26,7 +26,7 @@ namespace Exercises
             //string for peter money 
             double peterMoney = peterPaul["Peter"];
             //String for paul money
-            Dictionary<string, int> result = new Dictionary<string, int>();
+            //Dictionary<string, int> result = new Dictionary<string, int>();
             double paulMoney = peterPaul["Paul"];
             double moneyBoth = 0;
             if (peterMoney >= 50000 && paulMoney >= 10000)

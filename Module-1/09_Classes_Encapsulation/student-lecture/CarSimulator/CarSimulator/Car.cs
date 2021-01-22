@@ -9,7 +9,7 @@ namespace CarSimulator
         /*************************************************************
          * Private fields (not properties)
          * **********************************************************/
-        private const int MAX_SPEED = 120;
+        private int MAX_SPEED = 120;
 
         /*************************************************************
          * Automatic properties
@@ -51,16 +51,16 @@ namespace CarSimulator
         // Backed property for Gear. We want control over what Gear the user
         // puts the car into. For example, we cannot let them put the car into
         // "X" gear, or change directly from "D" to "R"
-        private string gear = "P";
+        private string gear = "P"; // initial value or default
         public string Gear
         {
             get
             {
-                return this.gear;
+                return this.gear; // returns the small gear or private setting
             }
             set
             {
-                if (value == "P" && Speed == 0)
+                if (value == "P" && Speed == 0) // value is what someone wants to set it to
                 {
                     this.gear = "P";
                 }
@@ -85,13 +85,13 @@ namespace CarSimulator
          * Certain properties should be set when the car is created, but not changed after that
          * *******************************************/
         // Vehicle ID.  If this changes after a car is constructed, that would be fraud
-        public string VIN { get; set; }
+        public string VIN { get; } // remove set makes it read only
         // Vehicle Make (Chevy). Never changes.
-        public string Make { get; set; }
+        public string Make { get; }
         // Vehicle Model (Corvette). Never changes
-        public string Model { get; set; }
+        public string Model { get; }
         // Year the car was built. Never changes.
-        public int Year { get; set; }
+        public int Year { get; }
 
 
         /***************************************************************************
@@ -103,13 +103,13 @@ namespace CarSimulator
 
         // This is a default constructor. We can remove this later if we don't want the user to be able to create 
         // a completely "blank" Car instance.
-        public Car()
-        {
-            this.VIN = GenerateVIN();
-        }
+        //public Car()
+        //{
+        //    this.VIN = GenerateVIN();
+        //}// allows you to generate a "car" without parameters.             public Car() {}; default constructor automatically creates
 
         // Create a constructor for Car that accepts a vin, year, make and model
-        public Car(int year, string make, string model)
+        public Car(int year, string make, string model)  //Just the parameters, assigns them to the this. below
         {
             this.VIN = GenerateVIN();
             this.Year = year;
@@ -123,12 +123,13 @@ namespace CarSimulator
          * *************************************************************************/
         // Accelerate allows the car to change speeds. We can change the speed from 
         // this method because Speed has a "private set".
-        public void Accelerate()
+        public void Accelerate() //Accelerate is NAME and () anything the caller needs to put in AKA Parameter
         {
             if (this.Speed < MAX_SPEED)
             {
                 this.Speed++;
             }
+            //return 100; cant return anything. return; is OK
         }
 
 
