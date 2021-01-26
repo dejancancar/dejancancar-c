@@ -20,6 +20,7 @@ namespace Shapes
 
         // TODO 10 Create the private list of shapes. 
         // This is our "drawing"; it is what the user is building up while running the program.
+        List<Shape2D> shapes = new List<Shape2D>();
 
         #endregion
 
@@ -70,7 +71,9 @@ namespace Shapes
             bool filled = GetBool("Do you want the shape filled? ", false);
 
             // TODO 11 Add a new Circle to the collection
-
+            Circle circle = new Circle(x, y, color, filled, radius);
+            shapes.Add(circle);
+            
 
             Console.WriteLine("New Circle was added");
             return MenuOptionResult.WaitAfterMenuSelection;
@@ -87,6 +90,7 @@ namespace Shapes
             bool filled = GetBool("Do you want the shape filled? ", false);
 
             // TODO 12 Add a new Rectangle to the collection
+            shapes.Add(new Rectangle(x, y, color, filled, width, height));
 
 
             Console.WriteLine("New Rectangle was added");
@@ -99,7 +103,10 @@ namespace Shapes
         private MenuOptionResult DrawCanvas()
         {
             // TODO 13 Loop through the shapes and Draw each one.
-
+            foreach (Shape2D shape in shapes)
+            {
+                shape.Draw();
+            }
 
             // Hide the cursor while displaying the drawing
             Console.CursorVisible = false;
@@ -113,6 +120,11 @@ namespace Shapes
             Console.WriteLine("Shapes:");
 
             // TODO 14 Display the list of shapes
+            foreach (Shape2D shape in shapes)
+            {
+                //if you pass and object "obj" into CW, CW calls obj.ToString() to determine what to display
+                Console.WriteLine(shape);
+            }
 
 
             return MenuOptionResult.WaitAfterMenuSelection;
@@ -121,7 +133,10 @@ namespace Shapes
         private MenuOptionResult ClearCanvas()
         {
             // TODO 15 Clear the list of shapes
+            shapes.Clear();
 
+            //Another way to clear the list
+            //shapes = new List<Shape2D>();
 
             Console.WriteLine("Canvas was cleared");
             return MenuOptionResult.WaitAfterMenuSelection;

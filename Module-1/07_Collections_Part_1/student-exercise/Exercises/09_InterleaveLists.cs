@@ -19,14 +19,26 @@ namespace Exercises
         public List<int> InterleaveLists(List<int> listOne, List<int> listTwo)
         {
             //Place holder list
-            List<int> finalList = new List<int>(listOne);
-            //list two must put elements into final list at even spaces
-     
-            //listone has to put in elements in at odd spaces
-           
+            List<int> finalList = new List<int>(listOne); //puts list one into final list
+            int finalListCount = 1; // Begining index on Final list to where list two is added
+            for (int i = 0; i < listTwo.Count; i++) //cycles list two one at a time
+            {
+
+                finalList.Insert(finalListCount, listTwo[i]);// adds listtwo[atindexi] to finalList at finalListCount index
+                finalListCount += 2; // add two to the finallist index count
+                if (finalListCount > listOne.Count) // if finalListCount is bigger than index of listOne
+                {
+                    listTwo.RemoveRange(0, i + 1);
+                    finalList.InsertRange(finalListCount, listTwo);
+                }
+
+
+
+
+            }
 
             //if one list longer then other then add to the end of final list
-            //
+
             return finalList;
         }
     }

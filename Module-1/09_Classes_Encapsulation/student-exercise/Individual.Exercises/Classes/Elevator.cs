@@ -2,7 +2,7 @@
 {
     public class Elevator
     {
-        public int CurrentLevel { get; private set; }
+        public int CurrentLevel { get; private set; } = 1;
 
         public int NumberOfLevels { get; private set; }
 
@@ -11,47 +11,51 @@
         {
 
             this.NumberOfLevels = numberOfLevels;
-            this.CurrentLevel = 1;
+            //this.CurrentLevel = 1;
 
         }
 
         public void OpenDoor()
         {
-            if (this.DoorIsOpen == false)
-            {
-                this.DoorIsOpen = true;
-            }
-            //else
-            //    this.DoorIsOpen = false;
+            //if (this.DoorIsOpen == false)
+            //{
+            //    this.DoorIsOpen = true;
+            //}
+              this.DoorIsOpen = true;
 
         }
 
         public void CloseDoor()
         {
-            if (this.DoorIsOpen == true)
-            {
-                this.DoorIsOpen = false;
-            }
-            //else
-            //    this.DoorIsOpen = true;
+            //if (this.DoorIsOpen == true)
+            //{
+            //    this.DoorIsOpen = false;
+            //}
+            ////else
+              this.DoorIsOpen = false;
 
         }
         public void GoUp(int desiredFloor)
         {
-            if (this.DoorIsOpen == false)
-            {
-                if (desiredFloor > this.NumberOfLevels)
-                {
-                    this.CurrentLevel = this.NumberOfLevels;
-                }
-                else if (desiredFloor <= this.NumberOfLevels && this.CurrentLevel < desiredFloor)
-                {
-                    this.CurrentLevel++;
-                }
+            //if (this.DoorIsOpen == false)
+            //{
+                //if (desiredFloor > this.NumberOfLevels)
+                //{
+                //    this.CurrentLevel = this.NumberOfLevels;
+                //}
+                //else if (desiredFloor <= this.NumberOfLevels && this.CurrentLevel < desiredFloor)
+                //{
+                //    this.CurrentLevel++;
+                //}
                 
+                if (this.DoorIsOpen || desiredFloor <= this.CurrentLevel || desiredFloor > this.NumberOfLevels)
+                {
+                    return;
+                }
+                this.CurrentLevel = desiredFloor;
                 
 
-            }
+            //}
         }
         public void GoDown(int desiredFloor)
         {
