@@ -14,7 +14,7 @@
             {
                 return base.Withdraw(amountToWithdraw + withDrawFee);
             }
-            if(this.Balance > 150 + amountToWithdraw )
+            else if(this.Balance > 150 + amountToWithdraw )
             {
                 return base.Withdraw(amountToWithdraw);
             }

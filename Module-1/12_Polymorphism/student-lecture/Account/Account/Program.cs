@@ -31,11 +31,12 @@ namespace Account
 
             // TODO 02: Do a Transfer of 100 from savings to checking. What type do we send for toAccount?
             // POLYMORPHISM: the method expects an Account, we send it a CheckingAccount
-
+            savings.TransferTo(150, checking);
 
             // TODO 05: Print a Monthly Statement for both accounts. What types are we sending in? What type is expected?
             // POLYMORPHISM: the method expects an Account, we send it a SavingsAccount or CheckingAccount
-
+            PrintMonthlyStatement(savings);
+            PrintMonthlyStatement(checking);
         }
 
         /// <summary>
