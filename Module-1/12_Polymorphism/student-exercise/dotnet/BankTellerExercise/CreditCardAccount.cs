@@ -6,13 +6,15 @@ namespace BankTellerExercise
 {
     public class CreditCardAccount : IAccountable
     {
-        public int Balance
-        {
-            get
-            {
-                return -Debt;
-            }
-        }
+        public int Balance { get; set; }
+        //{
+        //    get
+        //    {
+        //        return -Debt;
+        //    }
+        //    set;
+        //}
+
 
         public string AccountHolderName { get; }
         public string AccountNumber { get; }
@@ -20,11 +22,12 @@ namespace BankTellerExercise
         {
             get
             {
-                return amountOwed;
+                return -this.Balance;
+                /*return amountOwed;*/              
             }
         }
         //private int AmountOwed { get; set; }
-        private int amountOwed = 0;
+        //private int amountOwed = 0;
         public CreditCardAccount(string accountHolderName, string accountNumber)
         {
             this.AccountHolderName = accountHolderName;
@@ -34,16 +37,16 @@ namespace BankTellerExercise
         }
         public int Pay(int amountToPay)
         {
-            
-            amountOwed -= amountToPay;
-            return this.Debt;
+            this.Balance += amountToPay;
+            //amountOwed -= amountToPay;
+            return this.Balance;
         }
 
         public int Charge(int amountToCharge)
         {
-
-            amountOwed += amountToCharge;
-            return this.Debt;
+            this.Balance -= amountToCharge;
+            //amountOwed += amountToCharge;
+            return this.Balance;
         }
     }
 }

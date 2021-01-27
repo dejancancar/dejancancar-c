@@ -7,7 +7,7 @@ namespace BankTellerExercise
     public interface IAccountable
     {
         int Balance { get; }
-        //string AccountHolderName { get; }
+        
 
     }
 }
