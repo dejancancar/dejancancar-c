@@ -11,8 +11,9 @@ namespace States.CLI
     /// </summary>
     class MainMenu : ConsoleMenu
     {
-        private const string US_FILE = "USStates.txt";
-        private const string CANADA_FILE = "CanadianProvinces.txt";
+        //two different ways to show the literal path. @ = literal and \ says to ignore the next character.
+        private const string US_FILE = @"..\..\..\USStates.txt";
+        private const string CANADA_FILE = "..\\..\\..\\CanadianProvinces.txt";
 
         private string stateOrProvince = "state";
 
@@ -118,19 +119,47 @@ namespace States.CLI
         {
             List<State> stateList = new List<State>()
             {
-                new State("OH", "Ohio", "Cleveland", "Timberlake"),
-                new State("FL", "Florida", "Disney World", "Shady Oaks Retirement Community")
+
             };
 
             // TODO 12: Add exception handling so the program does not blow up with file error
+            try 
+            {
+                // TODO 11: Open the file, read each line, parse it, and load up a list of states.
+                using (StreamReader reader = new StreamReader(fileName))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        //read the next line
+                        string input = reader.ReadLine();
 
-            // TODO 11: Open the file, read each line, parse it, and load up a list of states.
+                        // split the line into individual fields
+                        string[] fields = input.Split("|");
 
-            // Now load this collection into a StateDictionary
-            this.stateCodes = new StateDictionary(stateList);
-            return true;
+                        string stateName = fields[0];
+                        string stateCode = fields[1];
+                        string capital = fields[2];
+                        string largestCity = fields[3];
+                        State state = new State(stateCode, stateName, capital, largestCity);
+                        stateList.Add(state);
+                    }
+                }
+                // Now load this collection into a StateDictionary
+                this.stateCodes = new StateDictionary(stateList);
+                return true;
+            }
+            catch(FileNotFoundException ex)
+            {
+                Console.WriteLine($"Unable to load data file {ex.FileName}. Error was {ex.Message}.");
+                this.stateCodes = new StateDictionary(new List<State>());
+                return false;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"File load failed with error {ex.Message}.");
+                return false;
+            }
         }
-
         /// <summary>
         /// Prompt the user for a state code and look it up.
         /// </summary>
