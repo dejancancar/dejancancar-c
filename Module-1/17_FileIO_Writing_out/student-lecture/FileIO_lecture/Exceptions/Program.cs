@@ -12,6 +12,26 @@ namespace Exceptions
             * try/catch blocks will also catch Exceptions that are 
             * thrown from method called further down the stack 
             */
+            try
+            {
+                Console.Write("First integer: ");
+                int i1 = int.Parse(Console.ReadLine());
+
+                Console.Write("Second integer: ");
+                int i2 = int.Parse(Console.ReadLine());
+
+                int answer = DoSomethingDangerous(i1, i2);
+                Console.WriteLine($"The answer is {answer}.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Something went wrong! {ex.Message}");
+
+            }
+            finally
+            {
+                Console.WriteLine($"I'm in the 'finally' block!");
+            }
             #endregion
 
             #region DoMathFun
@@ -40,7 +60,7 @@ namespace Exceptions
             }
             #endregion
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         private static int DoSomethingDangerous(int a, int b)
@@ -66,6 +86,8 @@ namespace Exceptions
                 Console.WriteLine("Running the final block...");
             }
         }
+
+
 
     }
 }

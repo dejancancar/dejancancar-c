@@ -21,7 +21,7 @@ namespace Lecture.Aids
 
             watch.Start();
 
-            for (int i = 0; i < 15000; i++)
+            for (int i = 0; i < 1500000; i++)
             {
                 using (StreamWriter sw = new StreamWriter("slow-file.txt", true))
                 {
@@ -47,7 +47,7 @@ namespace Lecture.Aids
 
             using (StreamWriter sw = new StreamWriter("fast-file.txt", true))
             {
-                for (int i = 0; i < 15000; i++)
+                for (int i = 0; i < 1500000; i++)
                 {
                     sw.WriteLine("FAST");
                 }

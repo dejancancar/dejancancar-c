@@ -9,11 +9,11 @@ namespace Lecture
         {
             // Here are a few examples of reading in a file and writing out values
             // to demonstrate their value.
-            WritingTextFiles.WritingAFile();
+            //WritingTextFiles.WritingAFile();
             //BinaryFileWriter.WritePrimitiveValues();          
             //BinaryImageManipulator.FunWithPhoto();
-            //PerformanceDemo.SlowPerformance();
-            //PerformanceDemo.FastPerformance();
+            PerformanceDemo.SlowPerformance();
+            PerformanceDemo.FastPerformance();
 
 
             Console.Write("Press enter to finish");
