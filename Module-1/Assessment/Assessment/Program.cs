@@ -11,7 +11,7 @@ namespace Assessment
 
             //new object reservations
             HotelReservation reservations = new HotelReservation("Dejan Cancar", 8);
-
+            decimal bleh = reservations.ActualTotal(true, true);
 
 
 
