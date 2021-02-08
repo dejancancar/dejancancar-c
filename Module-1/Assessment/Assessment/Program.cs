@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assessment.Models;
+using System;
 
 namespace Assessment
 {
@@ -7,6 +8,11 @@ namespace Assessment
         static void Main(string[] args)
         {
             // TODO: Create instances of your object here and call methods.
+
+            //new object reservations
+            HotelReservation reservations = new HotelReservation("Dejan Cancar", 8);
+
+
 
         }
     }
