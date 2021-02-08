@@ -12,8 +12,8 @@ namespace Assessment.Models
         private decimal costPerNight = 59.99M;
         private decimal costForMiniBar = 12.99M;
         private decimal costForCleaning = 34.99m;
-        bool requiresCleaning = true;
-        bool usedMiniBar = true;
+        bool requiresCleaning;
+        bool usedMiniBar;
         public string Name { get; set; }
         public int NumberOfNights { get; set; }
         public decimal EstimatedTotal
@@ -27,18 +27,29 @@ namespace Assessment.Models
 
             }
         }
-        //public decimal ActualTotalCost
-        //{
-        //    get
-        //    {
-        //        if(requiresCleaning || usedMiniBar)
-        //        {
-        //            return ActualTotalCost();
-        //        }
+        public decimal ActualTotalCost
+        {
+            get
+            {
+                if (requiresCleaning)
+                {
+                    return ActualTotal(true, false);
+                }
+                if (usedMiniBar)
+                {
+                    return ActualTotal(false, true);
+                }
+                if (requiresCleaning && usedMiniBar)
+                {
+                return ActualTotal(true, true);
+                }
+                else
+                {
+                    return this.EstimatedTotal;
+                }
 
-        //        return this.EstimatedTotal;
-        //    }
-        //}
+            }
+        }
         public HotelReservation(string name, int numberOfNights)
         {
             this.Name = name;
@@ -72,7 +83,7 @@ namespace Assessment.Models
             {
                 actualTotal = estTotal + (costForMiniBar + (costForCleaning * 2));
             }
-            else if(requiresCleaning)
+            else if (requiresCleaning)
             {
                 actualTotal = estTotal + costForCleaning;
             }
