@@ -3,14 +3,31 @@
 *************************************************************************************/
 
 -- The name and region of all countries in North or South America.  HOW MANY ways can we do this?
+Select name, region, continent
+	FROM Country
+	Where Continent = 'North America' OR continent = 'South America'
+
+Select name, region, continent
+	FROM Country
+	Where Continent in ('North America', 'South America')
+
+Select name, region, continent
+	FROM Country
+	Where Continent like '%America'
   
 -- The name, continent, and head of state of all countries whose form of government is a monarchy
+SELECT name, Continent, HeadOfState, GovernmentForm
+	FROM Country
+	where GovernmentForm like '%monarchy%'
 
 -- The name and region of all countries in North or South America except for countries in the Caribbean
 
 -- The name, population, and GNP of all countries with a GNP greater than $1 trillion dollars and a population of less than 1 billion people
 
 -- The names of all the US States
+SELECT distinct district
+	FROM city
+	WHERE CountryCode = 'USA'
 
 /*************************************************************************************
 *************************************************************************************/
@@ -18,39 +35,95 @@
 -- ORDERING RESULTS
 
 -- Populations of all countries in descending order
+SELECT name, Population
+	FROM Country
+	order by Population desc
 
 --Names of countries and continents in ascending order
+SELECT Name, Continent
+	FROM Country
+	--order by name
+	order by Continent, Name
 
 -- LIMITING RESULTS
 -- The name and average life expectancy of the countries with the 10 highest life expectancies.
+
+SELECT top 10 name, LifeExpectancy
+	FROM Country
+	order by LifeExpectancy desc
+
+--ISNULL EXAMPLE
+select name, IsNull(cast (IndepYear as varchar(15)), 'Not Independent')
+	from Country
+	order by IndepYear
 
 -- CONCATENATING OUTPUTS
 
 -- The name & state of all cities in California, Oregon, or Washington.
 -- "city, state", sorted by state then city
+SELECT Name + ', ' + District
+	FROM City
+	WHERE District in ('California', 'Oregon', 'Washington')
+	order by District, name
 
 -- Can you do it another way?
 
 
 -- AGGREGATE FUNCTIONS
 -- Average Life Expectancy in the World
+SELECT avg (LifeExpectancy)
+	FROM Country
+	--Where Continent = 'Africa'
+
 
 -- Total population in Ohio
+SELECT Sum(population) As 'Ohio Population'
+	From City
+	Where District = 'ohio' and CountryCode = 'USA'
 
 -- The surface area of the smallest country in the world
+select min( SurfaceArea) as 'Smallest Surface Area'
+	from Country
+
+Select Top(1) name, SurfaceARea
+	From Country
+	Order by SurfaceArea ASC
+
 
 -- The 10 largest countries in the world
+Select Top(10) name, SurfaceARea
+	From Country
+	Order by SurfaceArea desc
 
 -- The number of countries who declared independence in 1991
+SELECT COUNT(*) as NumCountries
+	FROM Country
+	WHERE IndepYear = 1991
 
 -- GROUP BY
 -- Count the number of countries where each language is spoken, ordered from most countries to least
 
+
 -- Average life expectancy of each continent ordered from highest to lowest
+SELECT Continent , Avg(LifeExpectancy) as 'Avg Life Expectancy'
+	FROM Country
+	Group by Continent
+	order by [Avg Life Expectancy] DESC
+	-- order by 2 desc also works but above is preffered.
 
 -- Exclude Antarctica from consideration for average life expectancy
+SELECT Continent , Avg(LifeExpectancy) as 'Avg Life Expectancy'
+	FROM Country
+	WHERE LifeExpectancy is Not null
+	Group by Continent
+	order by [Avg Life Expectancy] DESC
 
 -- Sum of the population of cities in each state in the USA ordered by state name
+SELECT District as State, SUM(Population) as 'Total Population'
+	FROM City
+	Where CountryCode = 'USA'
+	Group by District
+	order by State
 
 -- The average population of cities in each state in the USA ordered by state name
 
