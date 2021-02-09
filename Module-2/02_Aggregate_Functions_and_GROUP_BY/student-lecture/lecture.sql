@@ -101,8 +101,13 @@ SELECT COUNT(*) as NumCountries
 	WHERE IndepYear = 1991
 
 -- GROUP BY
--- Count the number of countries where each language is spoken, ordered from most countries to least
+-- Count the number of countries where each language is spoken, ordered from most countries to least.     LanguageIds not helpful so switching to below.
+--Count the number of languages Spoken in each country, order from most languages to the least.
 
+SELECT CountryCode, Count(*) as 'Languages Spoken'
+	FROM CountryLanguage
+	Group By CountryCode
+	order by [Languages Spoken] desc
 
 -- Average life expectancy of each continent ordered from highest to lowest
 SELECT Continent , Avg(LifeExpectancy) as 'Avg Life Expectancy'
@@ -110,6 +115,17 @@ SELECT Continent , Avg(LifeExpectancy) as 'Avg Life Expectancy'
 	Group by Continent
 	order by [Avg Life Expectancy] DESC
 	-- order by 2 desc also works but above is preffered.
+
+-- Show the total populations of all disctricts in the world order by country and district
+CAN New Brunswick 9999999999
+CAN Ontario 555555555
+USA New York 88888888
+USA Ohio 35525
+
+SELECT CountryCode, District, SUM(Population) as 'Total Population'
+	FROM City
+	Group by CountryCode, District
+	order by CountryCode, District
 
 -- Exclude Antarctica from consideration for average life expectancy
 SELECT Continent , Avg(LifeExpectancy) as 'Avg Life Expectancy'
@@ -126,9 +142,28 @@ SELECT District as State, SUM(Population) as 'Total Population'
 	order by State
 
 -- The average population of cities in each state in the USA ordered by state name
+SELECT District as State, avg(Population) as 'Avg Population'
+	FROM City
+	Where CountryCode = 'USA'
+	Group by District
+	order by State
 
 -- SUBQUERIES
 -- Find the names of cities under a given government leader
+-- 'George W. Bush'
+
+-- First find the countries under this leader
+
+
+-- Now find the cities in these countries
+SELECT *
+	FROM City
+	WHERE CountryCode in ('ASM', 'GUM', 'MNP', 'PRI', 'UMI', 'USA', 'VIR')
+
+	-- USE A SUB-QUERY TO ACCOMPLISH ABOVE
+	SELECT *
+		FROM City
+		WHERE CountryCode in (SELECT Code FROM Country WHERE HeadOfState = 'George W. Bush')
 
 -- Find the names of cities whose country they belong to has not declared independence yet
 
