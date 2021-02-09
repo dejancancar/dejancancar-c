@@ -38,6 +38,7 @@ namespace Exercises
          */
         public string AnimalGroupName(string animalName)
         {
+<<<<<<< HEAD
 
             //declare a dictionary and add names
             //animalName puts in a name
@@ -85,6 +86,31 @@ namespace Exercises
 
 
             return "unknown";
+=======
+            Dictionary<string, string> animals = new Dictionary<string, string>() 
+            { 
+                {"rhino","Crash" },
+                {"giraffe","Tower" },
+                {"elephant","Herd" },
+                {"lion","Pride" },
+                {"crow","Murder" },
+                {"pigeon","Kit" },
+                {"flamingo","Pat" },
+                {"deer","Herd" },
+                {"dog","Pack" },
+                {"crocodile","Float" }
+            };
+
+            if (animalName == null) {
+                return "unknown";
+            }
+            if (animals.ContainsKey(animalName.ToLower())) {
+                return animals[animalName.ToLower()];
+            } else {
+                return "unknown";
+            }
+
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
         }
     }
 }

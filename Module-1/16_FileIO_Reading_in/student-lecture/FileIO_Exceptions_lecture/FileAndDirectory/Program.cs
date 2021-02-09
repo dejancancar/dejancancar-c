@@ -44,6 +44,7 @@ namespace FileAndDirectory
             //PathDemo pd = new PathDemo();
             //pd.DoPathDemo();
 
+<<<<<<< HEAD
             //Read and display an entire text file
             string path = @"..\..\..\Files\Declaration.txt";
             using (StreamReader rdr = new StreamReader(path))
@@ -60,12 +61,37 @@ namespace FileAndDirectory
                 while(!rdr.EndOfStream)
                 {
                     string line = rdr.ReadLine();
+=======
+
+            //use ReadToEnd
+            string path = @"../../../Files/Declaration.txt";
+            using (StreamReader rdr = new StreamReader(path)) {
+                string body = rdr.ReadToEnd();
+                Console.WriteLine("\n\n\n" + body + "\n\n\n");
+            }
+
+            //Read a file line by line
+            Console.WriteLine("\n\n\n\n\n");
+            path = @"..\..\..\Files\Hamlet.txt";
+            using (StreamReader rdr = new StreamReader(path))
+            {
+                string line = "";
+                int lineNumber = 1;
+                while (!rdr.EndOfStream)
+                {
+                    line = rdr.ReadLine();
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
                     Console.WriteLine($"{lineNumber} {line}");
                     lineNumber++;
                 }
             }
 
+<<<<<<< HEAD
             Console.Write("Now, wasn't that FUN???");
+=======
+
+                Console.Write("Now, wasn't that FUN???");
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
             return;
         }
 

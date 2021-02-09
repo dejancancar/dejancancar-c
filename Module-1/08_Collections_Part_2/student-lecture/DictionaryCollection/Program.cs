@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 namespace DictionaryCollection
@@ -7,12 +8,24 @@ namespace DictionaryCollection
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             //Console.Write("Enter a State code: ");
             //string code = Console.ReadLine().ToUpper();
             //string state = LookUpStateUsingDictionary(code);
             //Console.WriteLine($"The state for code '{code}' is '{state}'");
+=======
+            /*
+            Console.Write("Enter a State code: ");
+            string stateCode = Console.ReadLine().ToUpper();
+            string state = LookupState(stateCode);
+            Console.WriteLine($"The state for code '{stateCode}' is '{state}'");
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
 
             //DictionaryDemo();
+            string stateFromDictionary = LookupStateUsingDictionary(stateCode);
+            Console.WriteLine(stateFromDictionary);
+            */
+
 
             //HashSetDemo();
 
@@ -20,11 +33,32 @@ namespace DictionaryCollection
             RunHeightDatabase();
         }
 
+        static string LookupStateUsingDictionary(string stateCode) 
+        {
+            string returnValue = null;
+
+            Dictionary<string, string> states = new Dictionary<string, string>() 
+            {
+                {"AR","Arkansas" },
+                {"AZ","Arizona"},
+                {"CA","California" }
+            };
+
+            if (states.ContainsKey(stateCode)) 
+            {
+                returnValue = states[stateCode];
+            } else {
+                returnValue = "UNKNOWN";
+            }
+
+            return returnValue;
+        }
         static string LookupState(string stateCode)
         {
             List<string> stateCodes = new List<string>() { "AL", "AK", "AR", "AZ", "CA", "CO", "CT", "DE" };
             List<string> stateNames = new List<string>() { "Alabama", "Alaska", "Arkansas", "Arizona", "California", "Colorado",
                 "Connecticut", "Deleware" };
+<<<<<<< HEAD
             int index = stateCodes.IndexOf(stateCode);
             string stateName;
 
@@ -36,6 +70,16 @@ namespace DictionaryCollection
             else
                 stateName = stateNames[index];
             return null;
+=======
+            int indexOfState = stateCodes.IndexOf(stateCode);
+            string stateName = null;
+            if (indexOfState < 0) {
+                stateName = "UNKNOWN";
+            } else {
+                stateName = stateNames[indexOfState];
+            }
+            return stateName;
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
         }
 
         static string LookUpStateUsingDictionary(string stateCode)
@@ -85,6 +129,7 @@ namespace DictionaryCollection
             ////      | "Bob"     | 72 |
             ////      | "John"    | 75 |
             ////      | "Jack"    | 73 |
+<<<<<<< HEAD
             Dictionary<string, int> heightDB = new Dictionary<string, int>()
             {
                 { "ben", 71 },
@@ -96,6 +141,15 @@ namespace DictionaryCollection
             };
 
             
+=======
+            Dictionary<string, int> heightDB = new Dictionary<string, int>() 
+            { 
+                {"mike",73 },
+                {"ben",71 },
+                {"Andrew", 71 }
+            };
+
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
 
             string input;
             while (true)
@@ -165,6 +219,7 @@ namespace DictionaryCollection
         {
             //7. Let's get the average height of the people in the dictionary
 
+<<<<<<< HEAD
             //initialize a variable to sup up all the height
             int sumOfHeights = 0;
             // loop through the collection
@@ -183,16 +238,42 @@ namespace DictionaryCollection
             {
                 Console.WriteLine("I'm sorry, I cannot calculate the average");
             }
+=======
+            //define a variable to hold the sum
+            int sumOfHeights = 0;
+
+            //loop through the collection
+            foreach(KeyValuePair<string,int> kvp in heightDB) {
+                //add the current height to the sum
+                sumOfHeights = sumOfHeights + kvp.Value;
+            }
+
+
+            //calculate average by sum/count
+            if (heightDB.Count > 0) {
+                decimal avg = sumOfHeights / (decimal)heightDB.Count;
+                avg = Math.Round(avg,2);
+                Console.WriteLine($"The average height is {avg}");
+            } else {
+                Console.WriteLine("No data in the database");
+            }
+
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
         }
 
         public static void PrintDB(Dictionary<string, int> heightDB)
         {
             // Looping through a dictionary involves using a foreach loop
             // to look at each item, which is a key-value pair
+<<<<<<< HEAD
             Console.WriteLine("Printing...");
             
             foreach (KeyValuePair<string,int> kvp in heightDB ) //kvp = key value pair or entry. its the pair
             {
+=======
+            
+            foreach(KeyValuePair<string,int> kvp in heightDB) {
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
                 Console.WriteLine($"name: {kvp.Key}, height: {kvp.Value}");
             }
 
@@ -217,7 +298,10 @@ namespace DictionaryCollection
                 //      dictionaryVariable[key] = value;
                 //      OR dictionaryVariable.Add(key, value);
                 db.Add(name, height);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
             }
             else //The name already DOES exist in the db
             {

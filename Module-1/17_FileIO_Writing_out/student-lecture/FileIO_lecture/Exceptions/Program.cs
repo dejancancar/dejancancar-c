@@ -33,7 +33,16 @@ namespace Exceptions
                 Console.WriteLine($"I'm in the 'finally' block!");
             }
             #endregion
-
+            try
+            {
+                Console.WriteLine("About to call DoSomethingDangerous");
+                int doSomethingDangerousResult = DoSomethingDangerous();
+                Console.WriteLine($"doSomethingDangerous result is {doSomethingDangerousResult}");
+            } catch (Exception ex) {
+                Console.WriteLine("Bad news: in main's catch");
+            } finally {
+                Console.WriteLine("in main's finally");
+            }
             #region DoMathFun
             //DoMathFun();
             //Console.ReadLine();
@@ -63,10 +72,32 @@ namespace Exceptions
             //Console.ReadKey();
         }
 
-        private static int DoSomethingDangerous(int a, int b)
+        private static int DoSomethingDangerous()
         {
-            int result = a / b;
-            return result;
+            try
+            {
+                Console.Write("First integer:");
+                int i1 = int.Parse(Console.ReadLine());
+
+                Console.Write("Second integer: ");
+                int i2 = int.Parse(Console.ReadLine());
+
+                int answer = i1 / i2;
+                Console.WriteLine($"The answer is {answer}");
+                return answer;
+            } catch (DivideByZeroException dbzException)
+            {
+                return 0;
+            } catch (Exception ex)
+            {
+                Console.WriteLine($"Something went wrong: {ex.Message}");
+                throw;
+            } finally
+            {
+                Console.WriteLine("I'm in the FINALLY block");
+            }
+
+            
         }
 
         private static void DoMathFun()

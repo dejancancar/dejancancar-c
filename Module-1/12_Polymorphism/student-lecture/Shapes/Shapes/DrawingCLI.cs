@@ -36,7 +36,11 @@ namespace Shapes
                 .AddOption("Add Text", AddText)
                 .AddOption("Draw the Canvas", DrawCanvas)
                 .AddOption("List All Shapes", ListShapes)
+<<<<<<< HEAD
                 .AddOption("Get Total Area", GetTotalArea)
+=======
+                .AddOption("Get Total Area of All Shapes", GetTotalArea)
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
                 .AddOption("Clear the Canvas", ClearCanvas)
                 .AddOption("Quit", Exit, "Q")
                 .Configure(cfg =>
@@ -120,6 +124,7 @@ namespace Shapes
         private MenuOptionResult ListShapes()
         {
             // TODO 04 We no longer draw shapes.  We draw "things that are drawable"
+<<<<<<< HEAD
             Console.WriteLine("Shapes:");
             foreach (IDrawable drawable in drawables)
             {
@@ -138,6 +143,12 @@ namespace Shapes
                 totalArea += shape.Area;
                 }
 
+=======
+            Console.WriteLine("Drawables:");
+            foreach (IDrawable drawable in drawables)
+            {
+                Console.WriteLine($"\t{drawable}");
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
             }
             Console.WriteLine($"Total area is {totalArea}.");
             return MenuOptionResult.WaitAfterMenuSelection;
@@ -160,13 +171,33 @@ namespace Shapes
         *          4. Add the new Text object to the list of drawables
         *          5. Report success to the user
         ********************************************/
+        private MenuOptionResult AddText()
+        {
+            int x = GetInteger("Left (X): ", null, Enumerable.Range(0, 100));
+            int y = GetInteger("Top (Y): ", null, Enumerable.Range(0, 100));
+            ConsoleColor color = GetColor();
+            string label = GetString("Label Text:");
+            drawables.Add(new Text(x, y, color, label));
+            Console.WriteLine("New Text was added");
+            return MenuOptionResult.WaitAfterMenuSelection;
+        }
 
         /********************************************
         * TODO 08: Create method to "Get total area" 
         *       private MenuOptionResult ShowTotalArea()
         *   and report it to the user
         ********************************************/
-
+        public MenuOptionResult GetTotalArea() {
+            int totalArea = 0;
+            foreach (IDrawable drawable in this.drawables) {
+                if (drawable is Shape2D) {
+                    Shape2D shape = (Shape2D)drawable;
+                    totalArea += shape.Area;
+                }    
+            }
+            Console.WriteLine($"Total Area: {totalArea}");
+            return MenuOptionResult.WaitAfterMenuSelection;
+        }
 
     }
 }

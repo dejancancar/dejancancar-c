@@ -18,6 +18,7 @@ namespace Exercises
         */
         public List<int> InterleaveLists(List<int> listOne, List<int> listTwo)
         {
+<<<<<<< HEAD
             //Place holder list
             List<int> finalList = new List<int>(listOne); //puts list one into final list
             int finalListCount = 1; // Begining index on Final list to where list two is added
@@ -39,6 +40,33 @@ namespace Exercises
 
             //if one list longer then other then add to the end of final list
 
+=======
+            List<int> finalList = new List<int>();
+
+            if (listOne.Count > listTwo.Count) {
+                //add from both lists up to the end of list two, because it is smaller
+                for (int i=0;i<listTwo.Count;i++) {
+                    finalList.Add(listOne[i]);
+                    finalList.Add(listTwo[i]);
+                }
+                //add the rest of the items from list 1
+                for (int i=listTwo.Count;i<listOne.Count;i++) {
+                    finalList.Add(listOne[i]);
+                }
+            } else {
+                //list two is greater OR they are equal
+                for (int i=0;i<listOne.Count;i++) {
+                    finalList.Add(listOne[i]);
+                    finalList.Add(listTwo[i]);
+                }
+
+                //add the rest of the items from list 2 (if equal, the loop wont run)
+                for (int i = listOne.Count;i<listTwo.Count;i++) {
+                    finalList.Add(listTwo[i]);
+                }
+            }
+
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
             return finalList;
         }
     }

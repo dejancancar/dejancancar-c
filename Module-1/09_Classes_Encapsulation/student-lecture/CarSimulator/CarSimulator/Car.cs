@@ -9,8 +9,13 @@ namespace CarSimulator
         /*************************************************************
          * Private fields (not properties)
          * **********************************************************/
+<<<<<<< HEAD
         private int MAX_SPEED = 120;
 
+=======
+        public int maxSpeed = 120;
+        
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
         /*************************************************************
          * Automatic properties
          * Can be set or get at any time. 
@@ -18,7 +23,7 @@ namespace CarSimulator
         // Automatic property to hold the color of the Car
         public string Color { get; set; }
 
-
+  
         /*************************************************************
          * Derived properties
          * Only has a Get, and that value is calculated based on other properties 
@@ -125,13 +130,12 @@ namespace CarSimulator
         // this method because Speed has a "private set".
         public void Accelerate() //Accelerate is NAME and () anything the caller needs to put in AKA Parameter
         {
-            if (this.Speed < MAX_SPEED)
+            if (this.Speed < maxSpeed)
             {
                 this.Speed++;
             }
             //return 100; cant return anything. return; is OK
         }
-
 
         /****************************************************************************
          * Method overload
@@ -141,7 +145,7 @@ namespace CarSimulator
         public void Accelerate(int mph)
         {
             int targetSpeed = this.Speed + mph;
-            if (targetSpeed >= 0 && targetSpeed <= MAX_SPEED)
+            if (targetSpeed >= 0 && targetSpeed <= maxSpeed)
             {
                 this.Speed += mph;
             }

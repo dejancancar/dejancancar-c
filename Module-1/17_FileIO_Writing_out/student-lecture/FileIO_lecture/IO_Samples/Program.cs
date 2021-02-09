@@ -11,13 +11,21 @@ namespace Lecture
             // to demonstrate their value.
             //WritingTextFiles.WritingAFile();
             //BinaryFileWriter.WritePrimitiveValues();          
+<<<<<<< HEAD
             //BinaryImageManipulator.FunWithPhoto();
             PerformanceDemo.SlowPerformance();
             PerformanceDemo.FastPerformance();
+=======
+            BinaryImageManipulator.FunWithPhoto();
+            //PerformanceDemo.SlowPerformance();
+            //PerformanceDemo.FastPerformance();
+>>>>>>> 2a35320594bb288d1ed7d189c85c5727f0bfcad4
 
 
             Console.Write("Press enter to finish");
             Console.ReadLine();
+
+
         }
     }
 }
