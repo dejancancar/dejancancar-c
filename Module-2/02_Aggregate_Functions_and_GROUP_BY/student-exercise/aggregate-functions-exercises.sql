@@ -83,6 +83,14 @@ SELECT AVG(Population) as Average_city_population
 	FROM City
 	Where CountryCode = 'USA'
 
+SELECT CAST(AVG(Population) as numeric(11,4))
+	FROM City
+	Where CountryCode = 'USA'
+
+SELECT AVG(CAST(Population as decimal(11,4)))
+	FROM City
+	Where CountryCode = 'USA'
+
 -- 12. The average population of cities in China.
 -- (average city population in China: 484720.6997 approx.)
 SELECT AVG(Population) AS Average_city_population

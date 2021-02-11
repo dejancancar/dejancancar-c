@@ -1,12 +1,51 @@
+-- Show all Cities with all their country information
+SELECT *
+	FROM City 
+	JOIN Country ON city.CountryCode = Country.Code
+
+SELECT *
+	FROM City AS ci
+	JOIN Country AS co ON ci.CountryCode = co.Code
+
+
 -- List the "city name, country name" and city population, sorted by country and city population descending
+SELECT ci.Name 'city name', co.Name 'country name', ci.Population 'city population'
+	FROM City ci
+	JOIN Country co ON ci.CountryCode = co.Code
+	ORDER BY [country name], [city population] DESC
+
+SELECT ci.Name + ', ' + co.Name City, ci.Population 'city population'
+	FROM City ci
+	JOIN Country co ON ci.CountryCode = co.Code
+	ORDER BY co.Name, [city population] desc
+
 
 -- List the city name, country name and the percentage of the country's population in the city
+SELECT ci.Name, co.Name, (ci.Population * 100.0 / co.Population) PercentagePop
+	FROM City ci
+	JOIN Country co ON ci.CountryCode = co.Code
 
 -- List the country name and its languages
+SELECT Name, LanguageName
+	FROM CountryLanguage cl
+	JOIN Country co ON cl.CountryCode = co.Code
+	JOIN Language l ON cl.LanguageId = l.LanguageId
+	ORDER BY Name, cl.Percentage DESC
 
 -- List the country name and its official language
+SELECT Name, LanguageName
+	FROM CountryLanguage cl
+	JOIN Country co ON cl.CountryCode = co.Code
+	JOIN Language l ON cl.LanguageId = l.LanguageId
+	WHERE cl.IsOfficial = 1 -- need to add 1 or 0
+	ORDER BY Name
+
 
 -- Let's display a list of all countries and their capitals.
+SELECT co.Name Country, ci.Name Capital
+	FROM Country co
+	JOIN City ci ON co.Capital = ci.CityId
+
 
 
 -- Only 232 rows. Where are the other 7 rows?
@@ -15,6 +54,17 @@
 
 -- ********* LEFT JOIN ***********
 -- A Left join selects all records from the "left" table and matches them with records from the "right" table if a matching record exists.
+SELECT co.Name Country, ci.Name Capital
+	FROM Country co	LEFT OUTER JOIN City ci ON co.Capital = ci.CityId
+
+	--SAME RESULT USING A RIGHT JOIN
+SELECT co.Name Country, ci.Name Capital
+	FROM City ci right OUTER JOIN Country co ON co.Capital = ci.CityId
+
+	--JUST TO SEE WHAT WOULD HAPPEN, WHAT IF I DID A RIGHT JOIN HERE?
+SELECT co.Name Country, ci.Name Capital
+	FROM Country co	RIGHT OUTER JOIN City ci ON co.Capital = ci.CityId
+
 
 
 -- List the countries and their capital cities, but make sure the country is listed even if it has no capital
