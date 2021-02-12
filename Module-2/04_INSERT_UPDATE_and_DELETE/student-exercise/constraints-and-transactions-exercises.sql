@@ -108,4 +108,6 @@ DELETE FROM film WHERE title = 'Euclidean PI'
 -- describe any remaining adjustments needed before the film "Euclidean PI" can
 -- be removed from the film table.
 	--The only other constraint seems to be on the film_actor table, so to remove Euclidean PI from film you would first have to remove the reference in film_actor
-	
+	--after further looking at it the PK film_id is the restraint. film_id was also refereced in inventory so it would need to be removed there as well first.
+
+
