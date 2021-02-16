@@ -69,6 +69,11 @@ INSERT INTO inventory(film_id,store_id)
 	VALUES ((SELECT film_id FROM film WHERE title = 'Euclidean PI'),1),
 	((SELECT film_id FROM film WHERE title = 'Euclidean PI'),2)
 
+/*INSERT INTO inventory (film_id, store_id)
+	SELECT (SELECT film_id FROM film WHERE title = 'Euclidean PI'), store_id
+	FROM store */
+		
+
 
 -- 8. The Feds have stepped in and have impounded all copies of the pirated film,
 -- "Euclidean PI". The film has been seized from all stores, and needs to be
