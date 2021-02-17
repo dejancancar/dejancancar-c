@@ -1,6 +1,7 @@
 ﻿using ProjectOrganizer.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace ProjectOrganizer.DAL
 {
     public class ProjectSqlDAO : IProjectDAO
     {
+        private const string SQL_GET_ALL_EMPLOYEES = "SELECT * FROM project";
         private string connectionString;
 
         // Single Parameter Constructor
@@ -23,7 +25,28 @@ namespace ProjectOrganizer.DAL
         /// <returns></returns>
         public IList<Project> GetAllProjects()
         {
-            throw new NotImplementedException();
+            IList<Project> projects = new List<Project>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(this.connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GET_ALL_EMPLOYEES, conn);
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while(rdr.Read())
+                    {
+                        Project project = RowToObject(rdr);
+                        projects.Add(project);
+
+                    }    
+                }
+                return projects;
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
         }
 
         /// <summary>
@@ -56,6 +79,18 @@ namespace ProjectOrganizer.DAL
         public int CreateProject(Project newProject)
         {
             throw new NotImplementedException();
+        }
+
+        private static Project RowToObject(SqlDataReader reader)
+        {
+            Project projects = new Project();
+            projects.ProjectId = Convert.ToInt32(reader["project_id"]);
+            projects.Name = Convert.ToString(reader["name"]);
+            projects.StartDate = Convert.ToDateTime(reader["from_date"]);
+            projects.EndDate = Convert.ToDateTime(reader["to_date"]);
+            return projects;
+
+
         }
 
     }

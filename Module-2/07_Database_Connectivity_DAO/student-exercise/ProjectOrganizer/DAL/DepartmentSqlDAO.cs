@@ -1,6 +1,7 @@
 ﻿using ProjectOrganizer.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace ProjectOrganizer.DAL
 {
     public class DepartmentSqlDAO : IDepartmentDAO
     {
+        private const string SQL_GET_ALL_DEPARTMENTS = "SELECT * FROM department";
         private string connectionString;
 
         // Single Parameter Constructor
@@ -23,7 +25,37 @@ namespace ProjectOrganizer.DAL
         /// <returns></returns>
         public IList<Department> GetDepartments()
         {
-            throw new NotImplementedException();
+            IList<Department> departments = new List<Department>();
+            try
+            {
+
+                using (SqlConnection conn = new SqlConnection(this.connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GET_ALL_DEPARTMENTS, conn);
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while(rdr.Read())
+                    {
+                        Department dept = RowToObject(rdr);
+                        departments.Add(dept);
+                    }
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+            return departments;
+        }
+
+        private static Department RowToObject(SqlDataReader rdr)
+        {
+            Department dept = new Department();
+            dept.Id = Convert.ToInt32(rdr["department_id"]);
+            dept.Name = Convert.ToString(rdr["name"]);
+            return dept;
         }
 
         /// <summary>

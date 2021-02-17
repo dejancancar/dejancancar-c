@@ -88,9 +88,9 @@ namespace ProjectOrganizer
             Project newProj = new Project()
             {
                 // TODO: Uncomment this after the Project Model is implemented
-                //Name = projectName,
-                //StartDate = startDate,
-                //EndDate = endDate
+                Name = projectName,
+                StartDate = startDate,
+                EndDate = endDate
             };
 
             int id = projectDAO.CreateProject(newProj);
@@ -113,8 +113,8 @@ namespace ProjectOrganizer
             Department updatedDepartment = new Department
             {
                 // TODO: Uncomment this after the Department Model is implemented
-                //Id = departmentId,
-                //Name = updatedName
+                Id = departmentId,
+                Name = updatedName
             };
 
             bool result = departmentDAO.UpdateDepartment(updatedDepartment);
@@ -136,7 +136,7 @@ namespace ProjectOrganizer
             Department newDept = new Department
             {
                 // TODO: Uncomment this after the Department Model is implemented
-                //Name = departmentName
+                Name = departmentName
             };
 
             int id = departmentDAO.CreateDepartment(newDept);
@@ -161,7 +161,7 @@ namespace ProjectOrganizer
                 foreach (Department dept in departments)
                 {
                     // TODO: Uncomment this after the Department Model is implemented
-                    //Console.WriteLine(dept.Id.ToString().PadRight(10) + dept.Name.PadRight(40));
+                    Console.WriteLine(dept.Id.ToString().PadRight(10) + dept.Name.PadRight(40));
                 }
             }
             else
@@ -180,7 +180,7 @@ namespace ProjectOrganizer
                 foreach (Employee emp in employees)
                 {
                     // TODO: Uncomment this after the Employee Model is implemented
-                    //Console.WriteLine(emp.EmployeeId.ToString().PadRight(5) + (emp.LastName + ", " + emp.FirstName).PadRight(30) + emp.JobTitle.PadRight(30) + emp.Gender.PadRight(3) + emp.BirthDate.ToShortDateString().PadRight(10));
+                    Console.WriteLine(emp.EmployeeId.ToString().PadRight(5) + (emp.LastName + ", " + emp.FirstName).PadRight(30) + emp.JobTitle.PadRight(30) + emp.Gender.PadRight(3) + emp.BirthDate.ToShortDateString().PadRight(10));
                 }
             }
             else
@@ -202,7 +202,7 @@ namespace ProjectOrganizer
                 foreach (Employee emp in employees)
                 {
                     // TODO: Uncomment this after the Employee Model is implemented
-                    //Console.WriteLine(emp.EmployeeId.ToString().PadRight(5) + (emp.LastName + ", " + emp.FirstName).PadRight(30) + emp.JobTitle.PadRight(30) + emp.Gender.PadRight(3) + emp.BirthDate.ToShortDateString().PadRight(10));
+                    Console.WriteLine(emp.EmployeeId.ToString().PadRight(5) + (emp.LastName + ", " + emp.FirstName).PadRight(30) + emp.JobTitle.PadRight(30) + emp.Gender.PadRight(3) + emp.BirthDate.ToShortDateString().PadRight(10));
                 }
             }
             else
@@ -222,7 +222,7 @@ namespace ProjectOrganizer
                 foreach (Employee emp in employees)
                 {
                     // TODO: Uncomment this after the Employee Model is implemented
-                    //Console.WriteLine(emp.EmployeeId.ToString().PadRight(5) + (emp.LastName + ", " + emp.FirstName).PadRight(30) + emp.JobTitle.PadRight(30) + emp.Gender.PadRight(3) + emp.BirthDate.ToShortDateString().PadRight(10));
+                    Console.WriteLine(emp.EmployeeId.ToString().PadRight(5) + (emp.LastName + ", " + emp.FirstName).PadRight(30) + emp.JobTitle.PadRight(30) + emp.Gender.PadRight(3) + emp.BirthDate.ToShortDateString().PadRight(10));
                 }
             }
             else
@@ -241,7 +241,7 @@ namespace ProjectOrganizer
                 foreach (Project proj in projects)
                 {
                     // TODO: Uncomment this after the Project Model is implemented
-                    //Console.WriteLine(proj.ProjectId.ToString().PadRight(5) + proj.Name.PadRight(20) + proj.StartDate.ToShortDateString().PadRight(10) + proj.EndDate.ToShortDateString().PadRight(10));
+                    Console.WriteLine(proj.ProjectId.ToString().PadRight(5) + proj.Name.PadRight(20) + proj.StartDate.ToShortDateString().PadRight(10) + proj.EndDate.ToShortDateString().PadRight(10));
                 }
 
             }
