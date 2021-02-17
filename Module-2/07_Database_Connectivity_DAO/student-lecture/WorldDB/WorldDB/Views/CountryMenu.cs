@@ -15,17 +15,20 @@ namespace WorldDB.Views
         private Country country = null;
 
         // TODO 09a: Store the Interfaces to our data objects
+        private ICityDAO cityDAO;
+
 
 
         /// <summary>
         /// Constructor adds items to the top-level menu
         /// </summary>
-        public CountryMenu(Country country)
+        public CountryMenu(Country country,ICityDAO cityDAO)
         {
             // TODO 09b: Update this constructor to accept appropriate daos, and save them in local variables.
 
             // Save the country (which will be used for all country queries
             this.country = country;
+            this.cityDAO = cityDAO;
 
             // This code is just protection because before we complete the code, Country may be null
             if (country == null)
@@ -64,7 +67,7 @@ namespace WorldDB.Views
         private MenuOptionResult ListCities()
         {
             // TODO 12: Get the list of cities (GetCitiesByCountryCode)
-            IList<City> cities = new List<City>();
+            IList<City> cities = cityDAO.GetCitiesByCountry(country.Code);
 
             SetColor(ConsoleColor.DarkYellow);
             Console.WriteLine(City.GetHeader());
@@ -105,9 +108,9 @@ namespace WorldDB.Views
             SetColor(ConsoleColor.Magenta);
 
             // TODO 11: Print a header that shows Country information
-            //Console.WriteLine($"{country.Name,-39} Population: {country.Population:N0}");
-            //Console.WriteLine($"Head of State: {country.HeadOfState, -24} Capital: {country.CapitalId}");
-            //Console.WriteLine(new string('=', 70));
+            Console.WriteLine($"{country.Name,-39} Population: {country.Population:N0}");
+            //Console.WriteLine($"Head of State: {country.HeadOfState,-24} Capital: {country.CapitalId}");
+            Console.WriteLine(new string('=', 70));
 
 
             ResetColor();

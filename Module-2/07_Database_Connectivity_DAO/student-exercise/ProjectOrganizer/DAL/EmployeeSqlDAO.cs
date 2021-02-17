@@ -11,7 +11,7 @@ namespace ProjectOrganizer.DAL
     public class EmployeeSqlDAO : IEmployeeDAO
     {
         private const string SQL_GET_ALL_EMPLOYEES = "SELECT * FROM Employee";
-        private const string SQL_GET_EMPLOYEE_BY_FIRST_AND_LAST_NAME = "SELECT * FROM employee WHERE first_name LIKE @firstName AND last_name LIKE @lastName";
+        private const string SQL_GET_EMPLOYEE_BY_FIRST_AND_LAST_NAME = "SELECT * FROM employee WHERE first_name LIKE '%' + @fname + '%' AND last_name LIKE '%' + @lname + '%'";
         private string connectionString;
 
         // Single Parameter Constructor
@@ -83,8 +83,8 @@ namespace ProjectOrganizer.DAL
                     conn.Open();
                     //TODO FIX LIKE HERE AND IN CONST
                     SqlCommand cmd = new SqlCommand(SQL_GET_EMPLOYEE_BY_FIRST_AND_LAST_NAME, conn);
-                    cmd.Parameters.AddWithValue("@firstName", "%" + firstname + "%");
-                    cmd.Parameters.AddWithValue("@lastName", $"%{lastname}%");
+                    cmd.Parameters.AddWithValue("@fname", firstname);
+                    cmd.Parameters.AddWithValue("@lname", lastname);
 
 
                     SqlDataReader rdr = cmd.ExecuteReader();
