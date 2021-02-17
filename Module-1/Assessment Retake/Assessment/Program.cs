@@ -11,7 +11,22 @@ namespace Assessment
         
         static void Main(string[] args)
         {
-            Path path = new Path();
+            List<Car> carlist = new List<Car>();
+            string path = @"..\..\..\Data\CarInput.csv";
+            using (StreamReader rdr = new StreamReader(path))
+            {
+                while(!rdr.EndOfStream) 
+                {
+                    string pathinput = rdr.ReadLine();
+                    string[] car = pathinput.Split(",");
+                    int year = int.Parse(car[0]);
+                    string make = car[1];
+                    bool isClassic = bool.Parse(car[2]);
+                    Car newcar = new Car(year, make, isClassic);
+                    carlist.Add(newcar);
+                    
+                }
+            }
             // TODO: Create instances of your object here and call methods.
             Car myCar = new Car(2017, "Kia", false);
 
