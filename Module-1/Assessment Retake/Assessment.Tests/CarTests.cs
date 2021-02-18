@@ -9,9 +9,23 @@ namespace Assessment.Models.Tests
     [TestClass]
     public class CarTests
     {
+        [DataTestMethod]
+        [DataRow(2017, 4)]
+        [DataRow(2016, 5)]
+        [DataRow(2000, 21)]
+
 
         //test age of car
-        //public void AgeOfCarTest(int )
+        public void AgeOfCarTest(int yearOfCar, int expectedResult)
+        {
+            //Arrange
+            Car car = new Car(yearOfCar, "", true);
+            //Act
+            int actualResult = car.Age;
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
 
 
         //test echeck method

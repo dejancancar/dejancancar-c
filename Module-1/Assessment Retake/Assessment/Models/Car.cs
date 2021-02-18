@@ -35,6 +35,8 @@ namespace Assessment.Models
                 return false;
             }
             int yearsOld = DateTime.Now.Year - yearToCheck;
+
+            yearsOld = DateTime.Now.Year - this.Year;
             if (yearsOld < 4 || yearsOld > 25 || isClassicCar)
             {
                 return false;

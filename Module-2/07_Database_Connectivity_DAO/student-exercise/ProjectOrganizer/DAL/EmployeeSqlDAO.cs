@@ -12,6 +12,7 @@ namespace ProjectOrganizer.DAL
     {
         private const string SQL_GET_ALL_EMPLOYEES = "SELECT * FROM Employee";
         private const string SQL_GET_EMPLOYEE_BY_FIRST_AND_LAST_NAME = "SELECT * FROM employee WHERE first_name LIKE '%' + @fname + '%' AND last_name LIKE '%' + @lname + '%'";
+        private const string SQL_GET_EMPLOYEE_WITHOUT_PROJECT = "SELECT * FROM employee WHERE employee_id NOT IN (SELECT distinct employee_id FROM project_employee)";
         private string connectionString;
 
         // Single Parameter Constructor
@@ -81,7 +82,6 @@ namespace ProjectOrganizer.DAL
                 using (SqlConnection conn = new SqlConnection(this.connectionString))
                 {
                     conn.Open();
-                    //TODO FIX LIKE HERE AND IN CONST
                     SqlCommand cmd = new SqlCommand(SQL_GET_EMPLOYEE_BY_FIRST_AND_LAST_NAME, conn);
                     cmd.Parameters.AddWithValue("@fname", firstname);
                     cmd.Parameters.AddWithValue("@lname", lastname);
@@ -109,7 +109,27 @@ namespace ProjectOrganizer.DAL
         /// <returns></returns>
         public IList<Employee> GetEmployeesWithoutProjects()
         {
-            throw new NotImplementedException();
+            try
+            {
+                IList<Employee> emp = new List<Employee>();
+                using (SqlConnection conn = new SqlConnection(this.connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GET_EMPLOYEE_WITHOUT_PROJECT, conn);
+
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        Employee employee = RowToObject(rdr);
+                        emp.Add(employee);
+                    }
+                }
+                return emp;
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
         }
     }
 }

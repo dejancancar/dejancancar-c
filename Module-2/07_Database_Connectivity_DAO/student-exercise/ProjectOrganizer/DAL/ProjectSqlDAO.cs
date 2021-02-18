@@ -11,6 +11,9 @@ namespace ProjectOrganizer.DAL
     public class ProjectSqlDAO : IProjectDAO
     {
         private const string SQL_GET_ALL_EMPLOYEES = "SELECT * FROM project";
+        private const string SQL_ADD_EMPLOYEE_TO_PROJECT = "INSERT INTO project_employee (project_id, employee_id) VALUES (@projId, @empId)";
+        private const string SQL_REMOVE_EMPLOYEE_FROM_PROJECT = "DELETE FROM project_employee WHERE project_id = @projId AND employee_id = @empId";
+        private const string SQL_ADD_NEW_PROJECT = "INSERT INTO project (name,from_date,to_date) VALUES (@name, @from_date, @to_date); SELECT @@IDENTITY";
         private string connectionString;
 
         // Single Parameter Constructor
@@ -57,7 +60,33 @@ namespace ProjectOrganizer.DAL
         /// <returns>If it was successful.</returns>
         public bool AssignEmployeeToProject(int projectId, int employeeId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_ADD_EMPLOYEE_TO_PROJECT, conn);
+                    cmd.Parameters.AddWithValue("@projId", projectId);
+                    cmd.Parameters.AddWithValue("@empId" , employeeId);
+
+                    int newId = cmd.ExecuteNonQuery();
+                    if (newId > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }    
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                //log
+                throw;
+            }
         }
 
         /// <summary>
@@ -68,7 +97,33 @@ namespace ProjectOrganizer.DAL
         /// <returns>If it was successful.</returns>
         public bool RemoveEmployeeFromProject(int projectId, int employeeId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_REMOVE_EMPLOYEE_FROM_PROJECT, conn);
+                    cmd.Parameters.AddWithValue("@projId", projectId);
+                    cmd.Parameters.AddWithValue("@empId", employeeId);
+
+                    int newId = cmd.ExecuteNonQuery();
+                    if (newId > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                //log
+                throw;
+            }
         }
 
         /// <summary>
@@ -78,7 +133,27 @@ namespace ProjectOrganizer.DAL
         /// <returns>The new id of the project.</returns>
         public int CreateProject(Project newProject)
         {
-            throw new NotImplementedException();
+            try
+            {
+                
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_ADD_NEW_PROJECT, conn);
+                    cmd.Parameters.AddWithValue("@name", newProject.Name);
+                    cmd.Parameters.AddWithValue("@from_date", newProject.StartDate);
+                    cmd.Parameters.AddWithValue("@to_date", newProject.EndDate);
+
+                    int newId = Convert.ToInt32(cmd.ExecuteScalar());
+                    return newId;
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                //LOG
+                throw;
+            }
         }
 
         private static Project RowToObject(SqlDataReader reader)

@@ -12,6 +12,7 @@ namespace Assessment
         static void Main(string[] args)
         {
             List<Car> carlist = new List<Car>();
+            int totalAge = 0;
             string path = @"..\..\..\Data\CarInput.csv";
             using (StreamReader rdr = new StreamReader(path))
             {
@@ -24,9 +25,11 @@ namespace Assessment
                     bool isClassic = bool.Parse(car[2]);
                     Car newcar = new Car(year, make, isClassic);
                     carlist.Add(newcar);
+                    totalAge += newcar.Age;
                     
                 }
             }
+            Console.WriteLine($"The total age of the cars is {totalAge}");
             // TODO: Create instances of your object here and call methods.
             Car myCar = new Car(2017, "Kia", false);
 
