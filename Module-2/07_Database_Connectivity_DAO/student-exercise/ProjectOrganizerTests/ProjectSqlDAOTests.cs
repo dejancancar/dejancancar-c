@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectOrganizer.DAL;
 using ProjectOrganizer.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
@@ -35,7 +36,7 @@ namespace ProjectOrganizerTests
         {
             //Act
             IList<Project> projects = dao.GetAllProjects();
-            foreach(Project project in projects)
+            foreach (Project project in projects)
             {
                 string actualResult = project.Name;
                 //Assert.AreEqual(expectedResult, actualResult);
@@ -44,10 +45,11 @@ namespace ProjectOrganizerTests
             Assert.IsNotNull(projects);
             Assert.AreEqual(6, projects.Count);
         }
-        
+
         // int int bool
+        //TODO fix this.. employee Id and project Id keep changing
         [DataTestMethod]
-        [DataRow(1,1, true)]
+        [DataRow(1, 1, true)]
         [DataRow(null, 1, false)]
         [DataRow(1, null, false)]
         [DataRow(-1, 1, false)]
@@ -59,7 +61,7 @@ namespace ProjectOrganizerTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        public void SetupDB()
+        private void SetupDB()
         {
             string path = "ProjectOrganizerDBSetup.sql";
             string setupScript = File.ReadAllText(path);
@@ -71,6 +73,20 @@ namespace ProjectOrganizerTests
                 SqlCommand cmd = new SqlCommand(setupScript, conn);
                 cmd.ExecuteNonQuery();
             }
+        }
+        private int GetProjectId()
+        {
+            Project projectId = new Project();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT project_id FROM project", conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                projectId.ProjectId = Convert.ToInt32(reader["project_id"]);
+
+            }
+            return projectId.ProjectId;
         }
     }
 }
