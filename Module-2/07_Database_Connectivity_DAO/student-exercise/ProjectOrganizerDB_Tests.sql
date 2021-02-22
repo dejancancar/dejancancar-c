@@ -1,9 +1,8 @@
 
 DELETE FROM project_employee
-DELETE FROM department
 DELETE FROM project
 DELETE FROM employee
-
+DELETE FROM department
 
 
 -- Fill department and project before employee or project_employee because they have no foreign key dependencies

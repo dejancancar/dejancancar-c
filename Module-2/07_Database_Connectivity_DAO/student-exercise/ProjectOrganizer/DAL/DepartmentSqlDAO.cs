@@ -11,7 +11,7 @@ namespace ProjectOrganizer.DAL
     public class DepartmentSqlDAO : IDepartmentDAO
     {
         private const string SQL_GET_ALL_DEPARTMENTS = "SELECT * FROM department";
-        private const string SQL_CREATE_NEW_DEPARTMENT = "INSERT INTO department (name) VALUES (@name)";
+        private const string SQL_CREATE_NEW_DEPARTMENT = "INSERT INTO department (name) VALUES (@name); SELECT @@IDENTITY";
         private const string SQL_UPDATE_DEPARTMENT = "UPDATE department set name = @newname WHERE department_id = @deptId";
         private string connectionString;
 
@@ -76,8 +76,8 @@ namespace ProjectOrganizer.DAL
                     SqlCommand cmd = new SqlCommand(SQL_CREATE_NEW_DEPARTMENT, conn);
                     cmd.Parameters.AddWithValue("@name", newDepartment.Name);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected;
+                    int newId = Convert.ToInt32( cmd.ExecuteScalar());
+                    return newId;
 
                 }
 

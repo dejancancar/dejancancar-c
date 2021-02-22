@@ -12,8 +12,8 @@ namespace ProjectOrganizerTests
     [TestClass]
     public class ProjectSqlDAOTests
     {
-        const string connectionString = "Server=.\\SQLExpress;Database=ProjectOrganizerDB_Tests;Trusted_Connection=true;";
-        ProjectSqlDAO dao;
+        private string connectionString = "Server=.\\SQLExpress;Database=ProjectOrganizerDB_Tests;Trusted_Connection=true;";
+        private ProjectSqlDAO dao;
 
         [TestInitialize]
         public void Arrange()
@@ -26,39 +26,70 @@ namespace ProjectOrganizerTests
         }
 
         [TestMethod]
-        //[DataRow("Project X", "Project X")]
-        //[DataRow("Forelorn Cupcake", "Forelorn Cupcake")]
-        //[DataRow("The Never-ending Project", "The Never-ending Project")]
-        //[DataRow("Absolutely Done By", "Absolutely Done By")]
-        //[DataRow("Royal Shakespeare", "Royal Shakespeare")]
-        //[DataRow("Plan 9", "Plan 9")]
+
         public void GetAllProjectsTest()
         {
             //Act
             IList<Project> projects = dao.GetAllProjects();
-            foreach (Project project in projects)
-            {
-                string actualResult = project.Name;
-                //Assert.AreEqual(expectedResult, actualResult);
-            }
-            //Assert
+
             Assert.IsNotNull(projects);
             Assert.AreEqual(6, projects.Count);
         }
 
         // int int bool
-        //TODO fix this.. employee Id and project Id keep changing
-        [DataTestMethod]
-        [DataRow(1, 1, true)]
-        [DataRow(null, 1, false)]
-        [DataRow(1, null, false)]
-        [DataRow(-1, 1, false)]
+        [TestMethod]
 
-        public void AssignEmployeeToProjectTest(int input1, int input2, bool expectedResult)
+
+        public void AssignEmployeeToProjectTest()
         {
-            bool actualResult = dao.AssignEmployeeToProject(input1, input2);
+            int projectId;
+            int employeeId;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT employee_id FROM employee WHERE first_name = 'Delora' and Last_name = 'Coty'", conn);
+                employeeId = Convert.ToInt32(cmd.ExecuteScalar());
+                cmd = new SqlCommand("SELECT project_id FROM project WHERE name = 'Plan 9'", conn);
+                projectId = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            bool actualResult = dao.AssignEmployeeToProject(projectId, employeeId);
             //Assert
-            Assert.AreEqual(expectedResult, actualResult);
+            Assert.AreEqual(true, actualResult);
+        }
+        [TestMethod]
+        public void RemoveEmployeeFromProjectTest()
+        {
+            int projectId;
+            int employeeId;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT employee_id FROM employee WHERE first_name = 'Jarred' and Last_name = 'Lukach'", conn);
+                employeeId = Convert.ToInt32(cmd.ExecuteScalar());
+                cmd = new SqlCommand("SELECT project_id FROM project WHERE name = 'Plan 9'", conn);
+                projectId = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            bool result = dao.RemoveEmployeeFromProject(projectId, employeeId);
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void CreateProjectTest()
+        {
+            int projId;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO project (name,from_date,to_date) VALUES " +
+                    "('Test Project', '01-01-2021', '01-01-2022'); SELECT @@IDENTITY", conn);
+                projId = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+
+            Assert.IsNotNull(projId);
+
         }
 
         private void SetupDB()
@@ -74,19 +105,6 @@ namespace ProjectOrganizerTests
                 cmd.ExecuteNonQuery();
             }
         }
-        private int GetProjectId()
-        {
-            Project projectId = new Project();
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
 
-                SqlCommand cmd = new SqlCommand("SELECT project_id FROM project", conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                projectId.ProjectId = Convert.ToInt32(reader["project_id"]);
-
-            }
-            return projectId.ProjectId;
-        }
     }
 }
