@@ -13,6 +13,7 @@ namespace HTTP_Web_Services_GET_lecture.Views
         public MainMenu(string apiUrl)
         {
             // TODO 01: Create the RestClient here...
+            client = new RestClient(apiUrl);
 
             AddOption("List Hotels", ListHotels)
                 .AddOption("List Reviews", ListReviews)
@@ -30,7 +31,12 @@ namespace HTTP_Web_Services_GET_lecture.Views
         private MenuOptionResult ListHotels()
         {
             // Call the api to get hotels (/hotels)
-            Console.WriteLine("Not Implemented");
+            RestRequest request = new RestRequest("hotels");
+            //Console.WriteLine("Not Implemented");
+            IRestResponse<List<Hotel>> response = this.client.Get<List<Hotel>>(request);
+
+            //Display to user
+            PrintHotels(response.Data);
 
             return MenuOptionResult.WaitAfterMenuSelection;
         }
@@ -38,15 +44,22 @@ namespace HTTP_Web_Services_GET_lecture.Views
         private MenuOptionResult ListReviews()
         {
             // TODO 02: Call the api to get hotels (/reviews)
-            Console.WriteLine("Not Implemented");
+            //Console.WriteLine("Not Implemented");
+            RestRequest request = new RestRequest("reviews");
+            IRestResponse<List<Review>> response = this.client.Get<List<Review>>(request);
+            PrintReviews(response.Data);
 
             return MenuOptionResult.WaitAfterMenuSelection;
         }
 
         private MenuOptionResult HotelDetails()
         {
+            int hotelId = GetInteger("Enter the Hotel ID: ");
             // TODO 03: Call the api to get hotels (/hotels/{id})
-            Console.WriteLine("Not Implemented");
+            //Console.WriteLine("Not Implemented");
+            RestRequest request = new RestRequest($"hotels/{hotelId}");
+            IRestResponse<Hotel> response = this.client.Get<Hotel>(request);
+            PrintHotel(response.Data);
 
             return MenuOptionResult.WaitAfterMenuSelection;
         }

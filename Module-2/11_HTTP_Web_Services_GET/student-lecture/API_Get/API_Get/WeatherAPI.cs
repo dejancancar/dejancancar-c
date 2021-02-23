@@ -17,9 +17,9 @@ namespace API_Get
             //"/weather?zip=44286&appid=api-key"
 
             RestClient client = new RestClient(API_URL);
-            client.Authenticator = new SimpleAuthenticator("appid", API_KEY, "x", "x");
+            //client.Authenticator = new SimpleAuthenticator("appid", API_KEY, "x", "x");
 
-            RestRequest request = new RestRequest($"weather?zip={zip}&units=imperial", DataFormat.Json);
+            RestRequest request = new RestRequest($"weather?zip={zip}&units=imperial&appid={API_KEY}", DataFormat.Json);
 
             //IRestResponse response = client.Get(request);
 
