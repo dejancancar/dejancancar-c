@@ -35,6 +35,14 @@ namespace HTTP_Web_Services_GET_lecture.Views
 
             IRestResponse<List<Hotel>> response = this.client.Get<List<Hotel>>(request);
 
+            if(response.ResponseStatus != ResponseStatus.Completed)
+            {
+                throw new Exception("Error - unable to reach the server");
+            }
+            if (!response.IsSuccessful)
+            {
+                throw new Exception($"Error - server returned error response: {response.StatusCode}({(int)response.StatusCode})");
+            }
             // Display the list to the user
             PrintHotels(response.Data);
 
@@ -73,7 +81,11 @@ namespace HTTP_Web_Services_GET_lecture.Views
         private MenuOptionResult HotelReviews()
         {
             // TODO 04: Call the api to get hotels (/hotels/{id}/reviews)
-            Console.WriteLine("Not Implemented");
+            int hotelId = GetInteger("Enter the hotel ID: ");
+            RestRequest request = new RestRequest($"hotels/{hotelId}/reviews");
+            IRestResponse<List<Review>> response = this.client.Get<List<Review>>(request);
+
+            PrintReviews(response.Data);
 
             return MenuOptionResult.WaitAfterMenuSelection;
         }
@@ -81,7 +93,12 @@ namespace HTTP_Web_Services_GET_lecture.Views
         private MenuOptionResult GetHotelsForRating()
         {
             // TODO 05: Call the api to get hotels (/hotels?stars={stars})
-            Console.WriteLine("Not Implemented");
+            //Console.WriteLine("Not Implemented");
+            int rating = GetInteger("Enter the review rating: ");
+            RestRequest request = new RestRequest($"hotels?stars={rating}");
+            IRestResponse<List<Hotel>> response = this.client.Get<List<Hotel>>(request);
+
+            PrintHotels(response.Data);
 
             return MenuOptionResult.WaitAfterMenuSelection;
         }

@@ -125,9 +125,9 @@
     {
       "Id": 702,
       "HotelId": 1,
-      "fullName": "Sam Smith",
-      "checkinDate": "08/08/2020",
-      "checkoutDate": "08/10/2020",
+      "fullName": "Sam Adams",
+      "checkinDate": "12/08/2020",
+      "checkoutDate": "12/10/2020",
       "guests": 4
     },
     {
