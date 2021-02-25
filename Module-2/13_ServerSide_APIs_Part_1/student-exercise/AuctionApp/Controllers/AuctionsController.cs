@@ -22,5 +22,48 @@ namespace AuctionApp.Controllers
                 dao = auctionDao;
             }
         }
+        [HttpGet]
+        public List<Auction> GetAuctions(string title_like = "", double currentBid_lte = 0)
+        {
+            List<Auction> auctions = dao.List();
+            if (title_like != "" && currentBid_lte != 0)
+            {
+                return dao.SearchByTitleAndPrice(title_like, currentBid_lte);
+            }
+            else if (currentBid_lte != 0)
+            {
+                return dao.SearchByPrice(currentBid_lte);
+            }
+            else if (title_like != "")
+            {
+                return dao.SearchByTitle(title_like);
+            }
+            else
+            {
+            return auctions;
+            }
+
+
+        }
+
+        [HttpGet("{id}")]
+        public Auction GetAuctionById(int id)
+        {
+            Auction auction = dao.Get(id);
+            if (auction != null)
+            {
+                return auction;
+            }
+            return null;
+        }
+
+        [HttpPost]
+        public ActionResult<Auction> CreateAuction(Auction newAuction)
+        {
+            Auction auction = dao.Create(newAuction);
+            return Created($"/auctions/{auction.Id}", auction);
+        }
+
+
     }
 }
