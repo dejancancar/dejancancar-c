@@ -12,10 +12,10 @@ namespace HotelReservations.Controllers
         private IHotelDao hotelDao;
         private IReservationDao reservationDao;
 
-        public HotelsController()
+        public HotelsController(IHotelDao hotelDao, IReservationDao reservationDao)
         {
-            hotelDao = new HotelFakeDao();
-            reservationDao = new ReservationFakeDao();
+            this.hotelDao = hotelDao;
+            this.reservationDao = reservationDao;
         }
 
         /// <summary>
@@ -35,17 +35,17 @@ namespace HotelReservations.Controllers
         /// <param name="id">The identifier for the hotel</param>
         /// <returns>The hotel (as JSON) if found, 404 if not found.</returns>
         [HttpGet("hotels/{id}")]
-        public Hotel GetHotel(int id)
+        public ActionResult<Hotel> GetHotel(int id)
         {
             // TODO 01: Return 404 if the Id is not found (using NotFound()). Change return type to ActionResult<>
             Hotel hotel = hotelDao.Get(id);
 
             if (hotel != null)
             {
-                return hotel;
+                return Ok(hotel);
             }
 
-            return null;
+            return NotFound(hotel);
         }
 
         /// <summary>
@@ -61,7 +61,14 @@ namespace HotelReservations.Controllers
         }
 
         // TODO 02: New Feature - Find all reservations by name
-        // /reservations/name=mik
+        // /reservations?name=mik
+
+        //CANT HAVE IT GO TO THE SAME ENDPOINT
+        //[HttpGet("reservations")]
+        //public List<Reservation> GetReservationsByName(string name)
+        //{
+        //    return reservationDao.FindByName(name);
+        //}
 
 
         /// <summary>
@@ -69,9 +76,13 @@ namespace HotelReservations.Controllers
         /// </summary>
         /// <returns>a json array of all reservations.</returns>
         [HttpGet("reservations")]
-        public List<Reservation> GetReservations()
+        public List<Reservation> GetReservations(string name)
         {
-            return reservationDao.List();
+            if (string.IsNullOrEmpty(name))
+            {
+                return reservationDao.List();
+            }
+            return reservationDao.FindByName(name);
         }
 
         /// <summary>

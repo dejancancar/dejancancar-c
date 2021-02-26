@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace HotelReservations.Models
 {
@@ -18,22 +19,30 @@ namespace HotelReservations.Models
         /// <summary>
         /// The id of the hotel this reservation is for
         /// </summary>
+        [Required]
         public int HotelId { get; set; }
         /// <summary>
         /// Full name of the guest staying at the hotel
         /// </summary>
+        [Required]
+        [StringLength(100, MinimumLength = 6)]
         public string FullName { get; set; }
         /// <summary>
         /// Date of arrival
         /// </summary>
+        [Required]
         public DateTime CheckinDate { get; set; }
         /// <summary>
         /// Date of departure
         /// </summary>
+        [Required]
         public DateTime CheckoutDate { get; set; }
         /// <summary>
         /// Total number of guests expected to stay overnight in the room.
         /// </summary>
+        //[Range(1,5)]
+        //Every attribute allows for ErrorMessage =
+        [Range(1,5, ErrorMessage = "No more than 5 guests are allowed per booking.")]
         public int Guests { get; set; }
 
         public Reservation(int? id, int hotelId, string fullName, DateTime checkinDate, DateTime checkoutDate, int guests)
