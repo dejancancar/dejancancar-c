@@ -12,7 +12,7 @@ namespace AuctionApp.Models
         public string Description { get; set; }
         [Required(ErrorMessage = "The field user should not be blank.")]
         public string User { get; set; }
-        [Range(.01, 9999999999999, ErrorMessage = "The field current bid should be greater than 0.")]
+        [Range(.01, double.PositiveInfinity, ErrorMessage = "The field current bid should be greater than 0.")]
         public double CurrentBid { get; set; }
     }
 }
