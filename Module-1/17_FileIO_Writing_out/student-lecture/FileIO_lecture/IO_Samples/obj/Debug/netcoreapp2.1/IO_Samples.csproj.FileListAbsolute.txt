@@ -1,0 +1,13 @@
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\bin\Debug\netcoreapp2.1\Blaze2.jpg
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\bin\Debug\netcoreapp2.1\IO_Samples.deps.json
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\bin\Debug\netcoreapp2.1\IO_Samples.runtimeconfig.json
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\bin\Debug\netcoreapp2.1\IO_Samples.runtimeconfig.dev.json
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\bin\Debug\netcoreapp2.1\IO_Samples.dll
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\bin\Debug\netcoreapp2.1\IO_Samples.pdb
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\obj\Debug\netcoreapp2.1\IO_Samples.csprojAssemblyReference.cache
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\obj\Debug\netcoreapp2.1\IO_Samples.AssemblyInfoInputs.cache
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\obj\Debug\netcoreapp2.1\IO_Samples.AssemblyInfo.cs
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\obj\Debug\netcoreapp2.1\IO_Samples.csproj.CoreCompileInputs.cache
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\obj\Debug\netcoreapp2.1\IO_Samples.dll
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\obj\Debug\netcoreapp2.1\IO_Samples.pdb
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\student-lecture\FileIO_lecture\IO_Samples\obj\Debug\netcoreapp2.1\IO_Samples.genruntimeconfig.cache

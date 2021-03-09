@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "Am4Um5vzxH2YGYISdkpJuY5C1vI49G0OrXGDYxFpZZUQPWmDB0fXp+t/pO6AkIWEh57ZXqwC+1DgjlsRI6H8SA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dejan\\git\\dejancancar-c\\Module-1\\16_FileIO_Reading_in\\student-lecture\\FileIO_Exceptions_lecture\\FileAndDirectory\\FileAndDirectory.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.app\\2.2.0\\microsoft.netcore.app.2.2.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.2.0\\microsoft.netcore.dotnetapphost.2.2.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.2.0\\microsoft.netcore.dotnethostpolicy.2.2.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.2.0\\microsoft.netcore.dotnethostresolver.2.2.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.platforms\\2.2.0\\microsoft.netcore.platforms.2.2.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.targets\\2.0.0\\microsoft.netcore.targets.2.0.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

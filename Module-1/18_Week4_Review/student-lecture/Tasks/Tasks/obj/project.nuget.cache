@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZDixCNyxu1++dF6nIsddYmXTs96ILlHNdc6+PxPXNjWVxs4wIFiTBdFEeSCbvdcoQnrZh6p+iUVvPpuQuqRuNQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dejan\\git\\dejancancar-c\\Module-1\\18_Week4_Review\\student-lecture\\Tasks\\Tasks\\Tasks.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dejan\\.nuget\\packages\\consolemenuframework\\1.5.0\\consolemenuframework.1.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

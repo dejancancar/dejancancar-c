@@ -11,9 +11,9 @@ namespace Lecture
             // to demonstrate their value.
             //WritingTextFiles.WritingAFile();
             //BinaryFileWriter.WritePrimitiveValues();          
-            BinaryImageManipulator.FunWithPhoto();
-            //PerformanceDemo.SlowPerformance();
-            //PerformanceDemo.FastPerformance();
+            //BinaryImageManipulator.FunWithPhoto();
+            PerformanceDemo.SlowPerformance();
+            PerformanceDemo.FastPerformance();
 
 
             Console.Write("Press enter to finish");

@@ -1,0 +1,12 @@
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\bin\Debug\netcoreapp2.2\FileIO_lecture.deps.json
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\bin\Debug\netcoreapp2.2\FileIO_lecture.runtimeconfig.json
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\bin\Debug\netcoreapp2.2\FileIO_lecture.runtimeconfig.dev.json
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\bin\Debug\netcoreapp2.2\FileIO_lecture.dll
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\bin\Debug\netcoreapp2.2\FileIO_lecture.pdb
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\obj\Debug\netcoreapp2.2\FileIO_lecture.csprojAssemblyReference.cache
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\obj\Debug\netcoreapp2.2\FileIO_lecture.AssemblyInfoInputs.cache
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\obj\Debug\netcoreapp2.2\FileIO_lecture.AssemblyInfo.cs
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\obj\Debug\netcoreapp2.2\FileIO_lecture.csproj.CoreCompileInputs.cache
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\obj\Debug\netcoreapp2.2\FileIO_lecture.dll
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\obj\Debug\netcoreapp2.2\FileIO_lecture.pdb
+C:\Users\Dejan\git\dejancancar-c\Module-1\17_FileIO_Writing_out\lecture-final\FileIO_lecture\FileIO_lecture\obj\Debug\netcoreapp2.2\FileIO_lecture.genruntimeconfig.cache

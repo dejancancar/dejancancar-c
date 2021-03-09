@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "4o5LCLU2M8p1wDIXYgmMA/IyneYDyx78T4yyikSe0KnclbSURWW+07FxeMd2WsDKzezcISOOOWy4sYjuce2QJw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dejan\\git\\dejancancar-c\\Module-1\\16_FileIO_Reading_in\\student-exercise\\file-io-part1-exercises\\QuizMaker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.app\\2.1.0\\microsoft.netcore.app.2.1.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.1.0\\microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.1.0\\microsoft.netcore.dotnethostpolicy.2.1.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.1.0\\microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.targets\\2.1.0\\microsoft.netcore.targets.2.1.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
