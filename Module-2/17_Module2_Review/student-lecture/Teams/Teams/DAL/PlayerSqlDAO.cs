@@ -7,7 +7,7 @@ using Teams.Models;
 
 namespace Teams.DAL
 {
-    public class PlayerSqlDAO
+    public class PlayerSqlDAO : IPlayerDAO
     {
         private string connectionString;
 
@@ -93,7 +93,7 @@ namespace Teams.DAL
             player.PlayerId = Convert.ToInt32(rdr["PlayerId"]);
             player.FirstName = Convert.ToString(rdr["FirstName"]);
             player.LastName = Convert.ToString(rdr["LastName"]);
-            
+
             // TODO: NOTE Handling of this nullable field
             if (rdr["TeamId"] is DBNull)
             {

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teams", "Teams\Teams.csproj", "{E992637E-8775-4F2B-9079-0DCD08B00BBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teams", "Teams\Teams.csproj", "{E992637E-8775-4F2B-9079-0DCD08B00BBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamIntegrationTests", "TeamIntegrationTests\TeamIntegrationTests.csproj", "{C8889D66-C9FD-4153-8F22-0AFF2719E207}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamIntegrationTests", "TeamIntegrationTests\TeamIntegrationTests.csproj", "{C8889D66-C9FD-4153-8F22-0AFF2719E207}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamsClient", "TeamsClient\TeamsClient.csproj", "{851890E7-726E-4CAD-A143-564EC288D121}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C8889D66-C9FD-4153-8F22-0AFF2719E207}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8889D66-C9FD-4153-8F22-0AFF2719E207}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8889D66-C9FD-4153-8F22-0AFF2719E207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851890E7-726E-4CAD-A143-564EC288D121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851890E7-726E-4CAD-A143-564EC288D121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851890E7-726E-4CAD-A143-564EC288D121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851890E7-726E-4CAD-A143-564EC288D121}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

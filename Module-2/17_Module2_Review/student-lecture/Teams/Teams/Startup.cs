@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Teams.DAL;
 
 namespace Teams
 {
@@ -26,6 +27,17 @@ namespace Teams
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            //Get the connection string to our database (usually hardcoded but we can get it from configure services)
+            //TODO: move this to appsetting.json
+            string connectionString = this.Configuration.GetConnectionString("NFLDB");
+
+
+
+            //set up dependency injection for our controllers / DAOs
+            services.AddTransient<ITeamDAO, TeamSqlDAO>(sp => {
+                return new TeamSqlDAO(connectionString);
+            }); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

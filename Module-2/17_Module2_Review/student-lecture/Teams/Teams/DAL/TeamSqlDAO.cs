@@ -5,7 +5,7 @@ using Teams.Models;
 
 namespace Teams.DAL
 {
-    public class TeamSqlDAO
+    public class TeamSqlDAO : ITeamDAO
     {
         private string connectionString;
 
@@ -66,7 +66,7 @@ namespace Teams.DAL
         {
             Team team = new Team();
 
-            team.TeamId = Convert.ToInt32( rdr["TeamId"]);
+            team.TeamId = Convert.ToInt32(rdr["TeamId"]);
             team.Location = Convert.ToString(rdr["Location"]);
             team.TeamName = Convert.ToString(rdr["TeamName"]);
             team.Conference = (Conference)Convert.ToInt32(rdr["Conference"]);
