@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Information Form</title>
+    <link rel="stylesheet" href="/fan-page/CSS/info-form-style.css">
 </head>
 <body>
     <header>
@@ -14,29 +15,39 @@
     <nav>
         <a href="../fan-page/index.html">Homepage</a>
     </nav>
+    <br>
     <main>
-        <h2>Information Form</h2>
-        <form method="POST" action="">
+        <form method="POST" action="/api/information-form">
             <div>
                 <label for="fullName">Name:</label>
-                <input id=""fullName name="fullName" type="text" />
+                <input id=""fullName name="fullName" type="text" required="true" />
             </div>
+           
             <div>
                 <label for="email">Email:</label>
-                <input id="email" name="email" type="email" />                
+                <input id="email" name="email" type="email" required="true" />                
             </div>
+            
             <div>
                 <label for="birthDay">Birthday:</label>
                 <input name="birthDay" id="birthDay" type="date" />
             </div>
+            
             <div>
-                <label for="favoriteMovie">Favorite Movie:</label>
-                <input name="favoriteMovie" id= "favoriteMovie" type="text" />
+                <label for="favoriteColor">Favorite Color:</label>
+                <input type="color" name="favoriteColor" id="favoriteColor" />
             </div>
+            
+            <div>
+                <label for="favoriteNumber">Favorite Number:</label>
+                <input name="favoriteNumber" id= "favoriteNumber" type="number" />
+            </div>
+            
             <div>
                 <label for="informationCorrect">Information is Correct?</label>
                 <input name="informationCorrect" id="informationCorrect" type="checkbox" required="true" />
             </div>
+            
             <div>
                 <input type="submit" />
             </div>
