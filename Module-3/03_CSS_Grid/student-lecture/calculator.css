@@ -18,10 +18,32 @@
 #five {grid-area:five;}
 #six {grid-area:six;}
 #seven {grid-area:seven;}
+#eight {grid-area:eight;}
+#nine {grid-area:nine;}
+#zero {grid-area:zero;}
 
 /*set grid-area for 8, 9, 0*/
 
 
 #container {
     /*make the container a grid*/
+    display: grid;
+
+    grid-template-areas:
+        "seven eight nine"
+        "four five six"
+        "one two three"
+        ". zero ."
+    ;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    gap: 10px 10px;
+
+    justify-items: start;
+    align-items: start;
+
+    height: 90vh;
+
 }
