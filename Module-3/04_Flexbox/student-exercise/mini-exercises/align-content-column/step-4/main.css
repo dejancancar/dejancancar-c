@@ -8,6 +8,11 @@ body {
 .container {
   background-color: #F0F0F0;
   height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 1;
+  justify-content: stretch;
 }
 
 .box {
