@@ -15,16 +15,37 @@ function variables() {
   printValueAndType("daysInWeek", daysInWeek);
 
   // Can I change it?
+  //daysInWeek = 8; // cannot redeclare a const
 
   console.log(`There are ${daysInWeek} days in the week`)
 
   // Declares a variable those value can be changed
-
+  let n;
+  printValueAndType("n", n);
+  n = "Tech Elevator";
+  printValueAndType("n", n);
   // Can I change it?
+  n = 21;
+  printValueAndType("n", n);
+
+  //Declare a variable that holds null
+  let thing = null;
+  printValueAndType("thing", thing)
+
+  //declare not a number
+  let notta = NaN;
+  printValueAndType("notta", notta)
 
   // Declares a variable that will always be an array (prime numbers)
+  //const int[] prime = new int[]{1,3,5....};
+  const prime = [1, 3, 5, 7, 11];
+  console.table(prime);
 
   // Can I change the values in the array?
+  prime.push(13);
+  console.table(prime);
+
+  //prime = [2,3,5]  this won't work, can't reassign an array. Can add to it.
 
   // Can I re-assign the variable?
   //  prime = "prime numbers";
@@ -87,15 +108,41 @@ function falsy(x) {
  */
 function arrays() {
   // Create an empty array
+  let junkDrawer = []; // empty
+  printValueAndType("junkDrawer", junkDrawer)
 
   // Add some elements by pushing
+  junkDrawer.push("Ben");
+  printValueAndType("junkDrawer", junkDrawer)
 
   // Add some more elements sparsely
+  junkDrawer[3] = 99;
+  printValueAndType("junkDrawer", junkDrawer)
 
   // Use the table command to print the results
+  console.table(junkDrawer);
+  console.log(`Length of junk drawer is ${junkDrawer.length}`);
+
+  // add a complex type to the array
+  let person = {
+    name: "Heidi",
+    height: 67,
+    children: [
+      "Rob",
+      "Dan"
+    ]
+  };
+  junkDrawer.unshift(person);
+  console.table(junkDrawer);
+  //remove the last element
+  let lastElement = junkDrawer.pop();
+  console.log(lastElement);
+
 
   // Loop through the array and print all elements
-
+  for (let i = 0; i < junkDrawer.length; i++) {
+    printValueAndType(`junkDrawer[${i}]`, junkDrawer[i])
+  };
   return 0;
 }
 
@@ -116,22 +163,35 @@ function objects() {
       "Samir Nagheenanajar",
       "Michael Bolton"
     ],
-    introduce: function () {
-      return `Hi, my name is ${this.firstName} ${this.lastName}. I am (${this.age}) years old.`;
+    introduce: function (pm) {
+      let greeting = "Good morning";
+      if(pm){
+        greeting = "Good afternoon"
+      }
+      return `${greeting}, my name is ${this.firstName} ${this.lastName}. I am (${this.age}) years old.`;
     }
   };
 
   // Log the object
+  console.log(person);
+  console.table(person);
 
   // Log the first and last name
+  console.log(`First name is ${person.firstName} and last name is ${person.lastName}`)
 
   // Change a property
-
+  person.firstName = "William"
   console.log(person);
 
   // Log each employee
+  console.log("Employees")
+  for (let emp of person.employees){
+      console.log(`\t${emp}`)
+  }
 
   // Call the object function introduce
+  let introduction = person.introduce(true);
+  console.log(introduction);
 
 }
 
@@ -146,10 +206,15 @@ earlier ones are overridden and the most recent one will be used.
 */
 
 function Add(num1, num2) {
+  console.log("In Add(x,y)")
   return num1 + num2;
 }
 
 function Add(num1, num2, num3) {
+  console.log("In Add(x,y,z)")
+  printValueAndType("num1", num1)
+  printValueAndType("num2", num2)
+  printValueAndType("num3", num3)
   return num1 + num2 + num3;
 }
 
@@ -192,8 +257,13 @@ function stringFunctions(value) {
         - trim()
         - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
     */
-   // Split and join
-
+  // Split and join
+  let s = "       The quick brown fox jumped over the lazy dog.   ";
+  s = s.trim();
+  arr = s.split(" ");
+  console.table(arr);
+  s = arr.join("...")
+  console.log(s);
 }
 
 function quirks() {
