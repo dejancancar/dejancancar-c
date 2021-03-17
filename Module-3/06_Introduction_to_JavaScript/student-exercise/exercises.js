@@ -47,9 +47,9 @@ function hasTeen(x, y, z) {
 // 	else
 // 		return false;
 // }
-function lastDigit(a, b){
+function lastDigit(a, b) {
 
-	if(a % 10 === b % 10){
+	if (a % 10 === b % 10) {
 		return true;
 	}
 	else
@@ -64,6 +64,19 @@ function lastDigit(a, b){
 		seeColor("xxred") → ""
 		seeColor("blueTimes") → "blue"
 */
+function seeColor(str) {
+	if (str.substring(0, 3) === "red") {
+		return "red";
+	}
+	else if (str.substring(0, 4) === "blue") {
+		return "blue";
+	}
+	else {
+		return "";
+	}
+
+
+}
 
 /*
 5. **oddOnly** Write a function that given an array of integer of any length, filters out
@@ -75,12 +88,9 @@ function lastDigit(a, b){
 function oddOnly(arr) {
 	let newArray = [];
 	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] % 2 === 1)
-		{
+		if (arr[i] % 2 === 1) {
 			newArray.push(arr[i])
-		}	
-
-
+		}
 	}
 	return newArray;
 }
@@ -93,6 +103,16 @@ function oddOnly(arr) {
 		frontAgain("edit") → false
 		frontAgain("ed") → true
 */
+function frontAgain(str) {
+	if (str.length === 2) {
+		return true;
+	}
+	else if (str.substring(0, 1) === str[str.length - 2]) {
+		return true;
+	}
+	return false;
+
+}
 
 /*
 7. **cigarParty** When squirrels get together for a party, they like to have cigars.
@@ -105,6 +125,14 @@ or false otherwise.
 		cigarParty(50, false) → true
 		cigarParty(70, true) → true
 */
+function cigarParty(cigars, isWeekend) {
+	if (isWeekend && cigars >= 40 || cigars >= 40 && cigars <= 60) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 /*
 8. **fizzBuzz** Because you know you can't live without it, FizzBuzz.
@@ -115,6 +143,21 @@ or false otherwise.
 		fizzBuzz(15) → "FizzBuzz"
 		fizzBuzz(8) → 8
 */
+function fizzBuzz(num) {
+	if (num % 15 === 0) {
+		return "FizzBuzz";
+	}
+	else if (num % 5 === 0) {
+		return "Buzz";
+	}
+	else if (num % 3 === 0) {
+		return "Fizz";
+	}
+	else {
+		return num;
+	}
+
+}
 
 /*
 9. **filterEvens** Write a function that filters an array to only include even numbers.
@@ -124,6 +167,19 @@ or false otherwise.
 	filterEvens([2, 4, 6]) → [2, 4, 6]
 	filterEvens([100, 8, 21, 24, 62, 9, 7]) → [100, 8, 24, 62]
 */
+// function filterEvens(array) {
+// 	return array.filter((n) => { n % 2 === 0 })
+// }
+
+function filterEvens(array) {
+	let newArray = [];
+	for (let i = 0; i < array.length; i++) {
+		if (array[i] % 2 === 0) {
+			newArray.push(array[i]);
+		}
+	}
+	return newArray;
+}
 
 /*
 10. **filterBigNumbers** Write a function that filters numbers greater than or equal to 100.
@@ -133,6 +189,18 @@ or false otherwise.
 	filterBigNumbers([]) → []
 */
 
+function filterBigNumbers(arr) {
+	let bigNumbers = [];
+	for (let i = 0; i < arr.length; i++) {
+
+		if (arr[i] >= 100) {
+			bigNumbers.push(arr[i]);
+		}
+	}
+
+	return bigNumbers;
+}
+
 /*
 11. **filterMultiplesOfX** Write a function to filter numbers that are a multiple of a
 parameter, `x` passed in.
@@ -140,6 +208,16 @@ parameter, `x` passed in.
 	filterMultiplesOfX([3, 5, 1, 9, 18, 21, 42, 67], 3) → [3, 9, 18, 21, 42]
 	filterMultiplesOfX([3, 5, 10, 20, 18, 21, 42, 67], 5) → [5, 10, 20]
 */
+function filterMultiplesOfX(arr, n) {
+	let newArr = [];
+	for (let number of arr) {
+		if (number % n === 0) {
+			newArr.push(number);
+		}
+
+	}
+	return newArr;
+}
 
 /*
 12. **createObject** Write a function that creates an object with a property called
@@ -153,3 +231,12 @@ firstName, lastName, and age. Populate the properties with your values.
 		age
 	}
 */
+function createObject(fName, lName, age) {
+	let person = {
+		firstName: "Dejan",
+		lastName: "Cancar",
+		age: 35
+	}
+	return person;
+
+}
