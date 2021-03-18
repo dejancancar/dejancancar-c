@@ -156,3 +156,13 @@ function findLargest(array){
  *
  * Read the tests to verify you have the correct behavior.
  */
+    function getSumOfSubArrayValues(array) {
+
+        let result = array.reduce( (a, b) => {
+          return a.concat(b);
+        }).reduce( (a, b) => {
+          return a + b;
+        });
+        return result;
+      }
+
