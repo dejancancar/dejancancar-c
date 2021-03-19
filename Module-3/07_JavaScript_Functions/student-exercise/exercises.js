@@ -38,7 +38,7 @@ function isAdmitted(gpa, satScore = 0, recommendation = false) {
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
 
-function useParameterToFilterArray(filterFunction){
+function useParameterToFilterArray(filterFunction) {
     return unfilteredArray.filter(filterFunction);
 }
 
@@ -54,8 +54,8 @@ function useParameterToFilterArray(filterFunction){
  * @param {string} [second=''] the second string of digits to concatenate
  * @returns {number} the resultant number
  */
-function makeNumber(str1, str2=""){ 
-    let numberString =str1.concat(str2);
+function makeNumber(str1, str2 = "") {
+    let numberString = str1.concat(str2);
     return Number.parseInt(numberString);
 }
 
@@ -67,13 +67,13 @@ function makeNumber(str1, str2=""){
  * @param {...number} num a series of numbers to add together
  * @returns {number} the sum of all the parameters (or arguments)
  */
-function addAll(){
+function addAll() {
     let sum = 0;
-    for (arg of arguments){
-      if(typeof(arg) === "number"){
-          sum += arg;  
-      }
-  
+    for (arg of arguments) {
+        if (typeof (arg) === "number") {
+            sum += arg;
+        }
+
     }
     return sum;
 }
@@ -88,9 +88,9 @@ function addAll(){
  * @param {string} arr the array being passed in
  * @returns {array} an array wih "Happy " added to the begining of each index
  */
-function makeHappy(arr){
+function makeHappy(arr) {
     let str = 'Happy '
-    return arr.map( (index) => {
+    return arr.map((index) => {
         return str + index;
     });
 }
@@ -112,8 +112,8 @@ function makeHappy(arr){
  *
  * Use `map` and an anonymous function.
  */
-function getFullAddressesOfProperties(arrOfObjects){
-    let arrayOfStrings = arrOfObjects.map( (o) => {
+function getFullAddressesOfProperties(arrOfObjects) {
+    let arrayOfStrings = arrOfObjects.map((o) => {
         return `${o.streetNumber} ${o.streetName} ${o.streetType} ${o.city} ${o.state} ${o.zip}`;
     });
     return arrayOfStrings;
@@ -130,13 +130,13 @@ function getFullAddressesOfProperties(arrOfObjects){
  * @param {strings or numbers} array array to check for biggest number or a string number
  * @returns {number} returns the largest number in the array
  */
-function findLargest(array){
+function findLargest(array) {
     let biggest = array[0];
-    array.forEach( (n) => {
-        if(n > biggest){
+    array.forEach((n) => {
+        if (n > biggest) {
             biggest = n;
         }
-    } )
+    })
     return biggest;
 }
 /*
@@ -156,13 +156,18 @@ function findLargest(array){
  *
  * Read the tests to verify you have the correct behavior.
  */
-    function getSumOfSubArrayValues(array) {
-
-        let result = array.reduce( (a, b) => {
-          return a.concat(b);
-        }).reduce( (a, b) => {
-          return a + b;
+function getSumOfSubArrayValues(array = []) {
+    if (array == "") {
+        return 0;
+    }
+    else {
+        let result = array.reduce((a, b) => {
+            return a.concat(b);
+        }).reduce((a, b) => {
+            return a + b;s
         });
         return result;
-      }
+    }
+
+}
 
