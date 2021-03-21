@@ -1,4 +1,5 @@
 let allItemsIncomplete = true;
+const button = document.getElementById("toggleAll")
 const pageTitle = 'My Shopping List';
 const groceries = [
   { id: 1, name: 'Oatmeal', completed: false },
@@ -12,6 +13,14 @@ const groceries = [
   { id: 9, name: 'Salad', completed: false },
   { id: 10, name: 'Tea', completed: false }
 ];
+
+document.addEventListener("DOMContentLoaded", initializePage);
+
+function initializePage() {
+  setPageTitle();
+  displayGroceries();
+
+}
 
 /**
  * This function will get a reference to the title and set its text to the value
@@ -32,10 +41,71 @@ function displayGroceries() {
     li.innerText = item.name;
     const checkCircle = document.createElement('i');
     checkCircle.setAttribute('class', 'far fa-check-circle');
+    li.addEventListener("click", (ev) => {
+      if (!ev.target.classList.contains("completed")) {
+        ev.target.querySelector("i").classList.add("completed");
+        ev.target.classList.add("completed");
+      }
+    });
+
+    checkCircle.addEventListener("click", (ev) => {
+      if(!ev.target.classList.contains("completed")){
+        li.classList.add("completed");
+        ev.target.classList.add("completed");
+
+      }});
+    
+    li.addEventListener('dblclick', (ev) =>{
+      if(ev.target.classList.contains('completed')){
+        checkCircle.classList.remove('completed');
+        ev.target.classList.remove('completed');
+
+      }
+    });
+    checkCircle.addEventListener('dblclick', () => {
+      if(checkCircle.classList.contains('completed')){
+        checkCircle.classList.remove('completed');
+        li.classList.remove('completed');
+      }
+    })
     li.appendChild(checkCircle);
     ul.appendChild(li);
   });
 }
 
-setPageTitle();
-displayGroceries();
+// function allItemsIncomplete(){
+//   let button = document.getElementById("toggleAll");
+//   let itemsList = document.querySelector("ul");
+//   if(!itemsList.classList.contains("completed")){
+//     button.innerText("Mark All Complete");
+//   }
+// }
+
+
+
+function markAllItems(){
+  const checkCircle = document.querySelectorAll("i");
+  const itemsList = document.querySelectorAll("li");
+  if(allItemsIncomplete){
+    button.innerText = "Mark All Incomplete";
+    allItemsIncomplete = false;  
+    itemsList.forEach( (item) => {
+      item.classList.add("completed");
+    });
+    checkCircle.forEach( (circle) => {
+      circle.classList.add("completed");
+    });
+  }else if(allItemsIncomplete === false){
+    button.innerText = "Mark All Completed";
+    allItemsIncomplete = true;  
+    itemsList.forEach( (item) => {
+      item.classList.remove("completed");
+    });
+    checkCircle.forEach( (circle) => {
+      circle.classList.remove("completed");
+    });
+  }
+}
+
+button.addEventListener('click', markAllItems);
+
