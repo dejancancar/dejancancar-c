@@ -90,7 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // add a click event listener to call the function clickNumber
   // the decimal point is part of the number so append it
   let decimal = document.querySelector(".decimal");
-  decimal.addEventListener("click", clickNumber);
+  decimal.addEventListener("click", () =>{
+  if(!display.value.includes(".")){
+    display.value += ".";
+    clickNumber();
+  }
+  });
 
 
   // get a reference to the all clear button
