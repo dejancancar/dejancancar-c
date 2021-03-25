@@ -141,8 +141,7 @@ export default {
   data() {
     return {
       name: "Cigar Parties for Dummies",
-      description:
-        "Host and plan the perfect cigar party for all your squirelly friends",
+      description: "Host and plan the perfect cigar party for all your squirelly friends",
 
       // TODO 02A: Create a variable to hold the current ratings Filter value
       filter: 0,
