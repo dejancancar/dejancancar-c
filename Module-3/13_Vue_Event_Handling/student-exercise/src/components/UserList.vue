@@ -170,7 +170,7 @@ export default {
   },
   methods: {
     saveUser() {
-      this.newUser.id = this.users.lenght + 1;
+      this.newUser.id = this.users.length + 1;
       this.users.unshift(this.newUser);
       this.newUser = {};
     },
@@ -184,7 +184,7 @@ export default {
   },
   computed: {
     actionButtonDisabled(){
-      if(this.selectedUserIDs.lenght === 0){
+      if(this.selectedUserIDs.length === 0){
         return true;      
       }
       return false;
@@ -227,10 +227,26 @@ export default {
         );
       }
       return filteredUsers;
+
+      /* another way to sort the above
+      return this.users.filter((user) => {
+        for (let prop in this.filter) {
+          if (
+            !user[prop].toLowerCase().includes(this.filter[prop].toLowerCase())
+          ) {
+            return false;
+          }
+        }
+        return true;
+      });
+      */
+
     },
+    
   },
 };
 </script>
+
 
 <style scoped>
 table {
