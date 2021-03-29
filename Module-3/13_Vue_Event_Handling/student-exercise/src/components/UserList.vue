@@ -48,7 +48,12 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-model="selectedUserIDs.id"/>
+            <input
+              type="checkbox"
+              v-bind:id="user.id"
+              v-bind:value="user.id"
+              v-model="selectedUserIDs"
+            />
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -64,10 +69,10 @@
       </tbody>
     </table>
 
-    <div class="all-actions" v-if="!actionButtonDisabled">
-      <button>Enable Users</button>
-      <button>Disable Users</button>
-      <button>Delete Users</button>
+    <div class="all-actions">
+      <button v-on:click="enableSelectedUsers">Enable Users</button>
+      <button @click="disableSelectedUsers">Disable Users</button>
+      <button @click="deleteSelectedUsers">Delete Users</button>
     </div>
 
     <button v-on:click.prevent="showForm = true">Add New User</button>
@@ -175,21 +180,43 @@ export default {
       this.newUser = {};
     },
     flipStatus(id) {
-        if (this.users[id - 1].status === "Disabled") {
-          return (this.users[id - 1].status = "Active");
-        } else if (this.users[id - 1].status === "Active"){
-          return (this.users[id - 1].status = "Disabled");
-        }
+      if (this.users[id - 1].status === "Disabled") {
+        return (this.users[id - 1].status = "Active");
+      } else if (this.users[id - 1].status === "Active") {
+        return (this.users[id - 1].status = "Disabled");
       }
+    },
+    enableSelectedUsers() {
+      return this.selectedUserIDs.forEach((u) => {
+        if (u === this.users[u - 1].id) {
+          return (this.users[u - 1].status = "Active");
+        }
+        return (this.selectedUserIDs = []);
+      });
+    },
+    disableSelectedUsers() {
+      return this.selectedUserIDs.forEach((u) => {
+        if (u === this.users[u - 1].id) {
+          return (this.users[u - 1].status = "Disabled");
+        }
+        return (this.selectedUserIDs = []);
+      });
+    },
+    deleteSelectedUsers() {
+      return this.selectedUserIDs.forEach((u) => {
+        if (u === this.users[u - 1].id) {
+          return (this.users.splice([u-1],1));
+        }
+        return (this.selectedUserIDs = []);
+      });
+    },
   },
   computed: {
-    actionButtonDisabled(){
-      if(this.selectedUserIDs.length === 0){
-        return true;      
+    actionButtonDisabled() {
+      if (this.selectedUserIDs.length === 0) {
+        return true;
       }
       return false;
-
-
     },
     filteredList() {
       let filteredUsers = this.users;
@@ -240,9 +267,7 @@ export default {
         return true;
       });
       */
-
     },
-    
   },
 };
 </script>
