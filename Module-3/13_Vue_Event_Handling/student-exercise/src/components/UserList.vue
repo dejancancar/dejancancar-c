@@ -48,12 +48,7 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input
-              type="checkbox"
-              v-bind:id="user.id"
-              v-bind:value="user.id"
-              v-model="selectedUserIDs"
-            />
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-model="selectedUserIDs" />
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -176,7 +171,7 @@ export default {
   methods: {
     saveUser() {
       this.newUser.id = this.users.length + 1;
-      this.users.unshift(this.newUser);
+      this.users.push(this.newUser);
       this.newUser = {};
     },
     flipStatus(id) {
@@ -189,25 +184,28 @@ export default {
     enableSelectedUsers() {
       return this.selectedUserIDs.forEach((u) => {
         if (u === this.users[u - 1].id) {
-          return (this.users[u - 1].status = "Active");
+        let result = (this.users[u - 1].status = "Active");
+        this.selectedUserIDs = [];
+        return result;
         }
-        return (this.selectedUserIDs = []);
       });
     },
     disableSelectedUsers() {
       return this.selectedUserIDs.forEach((u) => {
         if (u === this.users[u - 1].id) {
-          return (this.users[u - 1].status = "Disabled");
+        let result = (this.users[u - 1].status = "Disabled");
+        this.selectedUserIDs = [];
+        return result;
         }
-        return (this.selectedUserIDs = []);
       });
     },
     deleteSelectedUsers() {
       return this.selectedUserIDs.forEach((u) => {
         if (u === this.users[u - 1].id) {
-          return (this.users.splice([u-1],1));
+          let result = (this.users.splice([u-1],1));
+          this.selectedUserIDs =[];
+          return result;
         }
-        return (this.selectedUserIDs = []);
       });
     },
   },
