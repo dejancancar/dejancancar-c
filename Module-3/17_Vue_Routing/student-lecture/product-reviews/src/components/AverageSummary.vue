@@ -27,7 +27,7 @@ export default {
       if (sum === 0) {
         return 0;
       } else {
-        return sum / reviews.length;
+        return (sum / reviews.length).toFixed(2);
       }
     }
   }

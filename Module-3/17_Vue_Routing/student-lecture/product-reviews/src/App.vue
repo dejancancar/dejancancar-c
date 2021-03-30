@@ -4,10 +4,13 @@
       <div>Book Reviews</div>
       <nav>
         <!-- TODO: Add router-links to products and about pages. -->
+        <router-link :to="{name: 'products'}">Products List</router-link>
+        <router-link :to="{name: 'about'}">About</router-link>
       </nav>
     </header>
     <main class="main">
       <!-- 01: Add the router-view to display the current view -->
+      <router-view />
     </main>
     <footer>&copy; Copyright 2021, Dummies for Book Reviews</footer>
   </div>
@@ -113,5 +116,9 @@ footer {
 
 .selectedFilter {
   background-color: lightyellow;
+}
+.router-link-exact-active{
+  font-weight: bold;
+  background-color: aqua;
 }
 </style>
