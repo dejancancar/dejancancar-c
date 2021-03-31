@@ -32,7 +32,7 @@ export default {
                 read: false,
                 isbn: ''
             };
-            // this.$router.push({name: 'new-book', params: {isbn: this.isbn}})
+            this.$router.push({name: 'my-books', params: {isbn: this.isbn}})
         }
     }
 }

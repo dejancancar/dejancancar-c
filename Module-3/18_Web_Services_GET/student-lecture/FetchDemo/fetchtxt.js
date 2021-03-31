@@ -76,6 +76,17 @@ function fetchParkData() {
     let park = document.getElementById("parks").value;
 
     // Send an HTTP GET request to the nps parks api, returns a Promise of a Response
+    apiService.getPark(park)
+        .then( (resp) => {
+            logIt('fetchParkData 2');
+            let body = resp.data;
+            let parks = body.data
+            if(parks.length > 0){
+                let park = parks[0];
+                document.getElementById('results').innerText = park.description;
+                addImages(park.images)
+            }
+        });
 
     logIt('fetchParkData 3');
 }

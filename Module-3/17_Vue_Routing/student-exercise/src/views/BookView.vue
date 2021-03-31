@@ -1,6 +1,6 @@
 <template>
   <div>
-    <book-details />
+    <book-details :isbn="isbn" />
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 
 import BookDetails from "../components/BookDetails.vue";
 export default {
-  name: "book-view",
+      name: 'book',
   components: {
     BookDetails
   },
@@ -17,13 +17,6 @@ export default {
     return {
       isbn: 0,
     };
-  },
-  method: {
-    book() {
-      return this.$store.state.book.find((b) => {
-        return b.isbn == this.isbn;
-      });
-    },
   },
   created() {
     this.isbn = parseInt(this.$route.params.isbn);

@@ -5,7 +5,7 @@
 <script>
 import NewBookForm from '../components/NewBookForm.vue'
 export default {
-     name: "new-book",
+     name: 'new-book',
   components: {
       NewBookForm
     },
