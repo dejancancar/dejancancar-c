@@ -11,6 +11,7 @@ export default {
   name: 'Messages',
   components: {
     TopicDetails
-  }
+  },
+
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="topic-list">
-    <div v-for="topic in topics" v-bind:key="topic.id" class="topic">
+    <div v-for="topic in topics" v-bind:key="topic.id" class="topic" >
       <router-link :to="{name: 'Messages', params: { id: topic.id}}"> {{ topic.title }} </router-link>
     </div>
 
@@ -21,6 +21,7 @@ export default {
       topics: []
     }
   },
+
   created(){
     apiService.getTopics().then( (resp) => {
       this.topics = resp.data;

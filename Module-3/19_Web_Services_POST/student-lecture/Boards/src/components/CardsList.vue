@@ -76,16 +76,35 @@ export default {
       // TODO 03: Implement the deleteBoard function
 
       // confirm the user really wants to do this. (window.confirm)
+      if(window.confirm("Do you really want to delete this board?")){
+        boardsService.deleteBoard(this.boardId)
+          .then( (response) => {
+             // check that the response is 200
+            if(response.status === 200){
+
+              // alert the user of the deletion
+              window.alert("The board has been deleted!");
+
+              // commit the DELETE_BOARD mutation
+              this.$store.commit('DELETE_BOARD', this.boardId);
+
+              // use $router.push to load the home page
+              this.$router.push({name: 'Home'});
+
+            }
+          }).catch( (err) =>{
+            if(err.response){
+              this.errorMsg = `The server returned bad response ${err.response.statusText}`
+            } else if(err.request){
+              this.errorMsg = "Error - The server could not be reached."
+            }else {
+              this.errorMsg = "Error - Request could not be created."
+            }});
+      }
 
       // call the deleteBoard function in the board service
 
       // When the promise resolves, 
-      // check that the response is 200
-      // alert the user of the deletion
-      // commit the DELETE_BOARD mutation
-      // use $router.push to load the home page
-
-
       // On error (catch) check the errors and set the appropriate message
 
 

@@ -1,6 +1,6 @@
 <template>
   <div class="topic-details">
-    <h1>{{ topic.title }}</h1>
+   <h1>{{ topic.title }}</h1>
     <div v-for="message in topic.messages" v-bind:key="message.id" class="topic-message bubble">
       <h3 class="message-title">{{ message.title }}</h3>
       <p class="message-body">
@@ -12,10 +12,12 @@
 
 <script>
 import apiService from '../service/apiService.js'
+
 export default {
   name: 'topic-details',
+
   props: {
-    'topicId': Number
+    'topicId': Number,
   },
   data() {
     return {
@@ -28,8 +30,7 @@ export default {
   },
   created(){
     apiService.getTopicsById(this.$route.params.id).then( (resp) => {
-      this.title = resp.data.title;
-      this.messages = resp.data.messages;
+      this.topic = resp.data;
     });
   }
 }

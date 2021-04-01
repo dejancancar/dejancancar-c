@@ -31,5 +31,12 @@ export default {
   },
 
   // TODO 01: Add methods addBoard and deleteBoard, which call the endpoints at /boards and /boards/id
+  addBoard(board){
+    return http.post("/boards", board);
+  },
+
+  deleteBoard(boardId){
+    return http.delete(`/boards/${boardId}`)
+  }
 
 }

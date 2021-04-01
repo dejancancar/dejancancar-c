@@ -23,7 +23,7 @@
       <label for="description">Description:</label>
       <textarea id="description" class="form-control" v-model="card.description"></textarea>
     </div>
-    <button class="btn btn-submit">Submit</button>
+    <button class="btn btn-submit" v-bind:disabled="isSubmitting" >Submit</button>
     <button class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel">Cancel</button>
   </form>
 </template>
@@ -47,6 +47,7 @@ export default {
   },
   data() {
     return {
+      isSubmitting: false,
       card: {
         title: "",
         description: "",
@@ -60,6 +61,7 @@ export default {
   },
   methods: {
     submitForm() {
+      this.isSubmitting = true;
       const newCard = {
         boardId: Number(this.boardId),
         title: this.card.title,

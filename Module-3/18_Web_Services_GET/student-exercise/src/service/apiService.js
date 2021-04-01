@@ -12,10 +12,7 @@ const http = axios.create({
   
     getTopicsById(id) {
       return http.get(`/topics/${id}`)
-        .then( (resp) => {
-            const topics = resp.data.topics
-            return topics.find( topic => topic.id == id)
-        })
+
     }
   
   }

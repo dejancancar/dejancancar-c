@@ -62,12 +62,38 @@ export default {
       // TODO 02: Add the implementation of this function
 
       // set isLoading to true to inform user.
-
+        this.isLoading = true;
       // Call addBoard on the board service
+      boardsService.addBoard(this.newBoard)
+        .then( (response) => { 
+        // When the promise resolves, check for status 201 (created)
+          if(response.status === 201){
+              // call retrieveBoards to refresh the page (it will turn off isLoading)
+              this.retrieveBoards();
+              // hide the form and clear the new board
+              this.showAddBoard = false;
+              this.newBoard = {
+                title: '',
+                backgroundColor: this.randomBackgroundColor()
+              }
+          }
+        }
+        ).catch( (err) => {
+          if(err.response){
+            //request got to a server, got a response, but the response was non-2xx
+            this.errorMsg = `The server returned error ${err.response.status} - ${err.response.statusText}`
+          } else if (err.request){
+            //We created a request, but got NO response
+            this.errorMsg = "Error - the server could not be reached."
+          } else {
+            //We were not even able to create a request
+            this.errorMsg = "Error - unable to create a request."
+          }
 
-      // When the promise resolves, check for status 201 (created)
-          // call retrieveBoards to refresh the page (it will turn off isLoading)
-          // hide the form and clear the new board
+        });
+      
+
+
 
       // If there is an error (catch),
           // Test the response and request properties and set the appropriate error message.
