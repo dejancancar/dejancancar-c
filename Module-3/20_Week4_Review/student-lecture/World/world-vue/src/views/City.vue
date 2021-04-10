@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import api from "@/services/apiService.js"
 export default {
   name: "city",
   props: {
@@ -59,11 +60,15 @@ export default {
   methods: {
     getCity(id) {
       // TODO 03: Use the service to get data and populate the city data field
+      api.getCity(id)
+        .then( (resp) => {
+          this.city = resp.data;
+        });
       console.log(id);
     }
   },
   created() {
-
+    this.getCity(this.$route.params.id);
   }
 };
 </script>

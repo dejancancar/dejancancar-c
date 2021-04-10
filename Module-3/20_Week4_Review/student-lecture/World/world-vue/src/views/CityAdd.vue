@@ -29,7 +29,7 @@
       <tr>
         <td></td>
         <td>
-          <button v-on:click="addCity">Add</button>
+          <button type="button" v-on:click="addCity">Add</button>
         </td>
       </tr>
     </table>
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import api from '@/services/apiService.js'
 export default {
   name: "city-add",
   props: {},
@@ -54,8 +55,13 @@ export default {
   methods: {
     addCity() {
      // TODO 08: use the service to Add the city on the server (POST)
-
-
+      api.addCity(this.city)
+        .then( (resp) => {
+          if(resp.status === 201){
+            this.city = resp.data
+            window.alert(`The city with id ${this.city.cityId} was added.`)
+          }});
+      this.$router.push({name: 'Cities', query:{countryCode: this.city.countryCode, district: this.city.district}});
     }
   },
   created() {}

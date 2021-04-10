@@ -24,6 +24,11 @@
       "title": "Green Board",
       "backgroundColor": "green",
       "id": 90587
+    },
+    {
+      "title": "",
+      "backgroundColor": "#4458b6",
+      "id": 90588
     }
   ],
   "cards": [
